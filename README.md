@@ -1,7 +1,3 @@
-# TBC - Library not yet ready for consumption
-
-Watch this project for readiness updates
-
 # chippyash/Matrix
 
 ## What?
