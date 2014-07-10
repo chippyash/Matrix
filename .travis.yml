@@ -13,7 +13,7 @@ php:
 script:
   - composer install
   - cd test
-  - phpunit -c phpunit.xml --coverage-text
+  - phpunit -c phpunit.xml
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
