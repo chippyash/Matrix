@@ -12,7 +12,7 @@ php:
 # use the $DB env variable to determine the phpunit.xml to use
 script:
   - composer install
-  - vendor/bin/phpunit --configuration test/phpunit.xml
+  - phpunit --configuration phpunit.travis.xml
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
