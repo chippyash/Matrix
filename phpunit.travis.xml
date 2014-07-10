@@ -33,6 +33,11 @@ testSuiteLoaderFile="/path/to/StandardTestSuiteLoader.php"
          strict="false"
          verbose="false">
 
+    <testsuites>
+        <testsuite name="chippyash/Matrix Test Suite">
+            <directory>./test/src/</directory>
+        </testsuite>
+    </testsuites>
     <!--
      ! The <filter> element and its children can be used to configure the
      ! blacklist and whitelist for the code coverage reporting.
