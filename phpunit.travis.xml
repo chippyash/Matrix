@@ -35,7 +35,7 @@ testSuiteLoaderFile="/path/to/StandardTestSuiteLoader.php"
 
     <testsuites>
         <testsuite name="chippyash/Matrix Test Suite">
-            <directory>./test/src/</directory>
+            <directory phpVersion="5.4.0" phpVersionOperator=">=">./test/src/</directory>
         </testsuite>
     </testsuites>
     <!--

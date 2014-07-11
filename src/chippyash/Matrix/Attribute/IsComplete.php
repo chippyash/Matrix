@@ -41,7 +41,8 @@ class IsComplete implements AttributeInterface
         $data = $mA->toArray();
 
         //check we don't have empty/missing rows
-        $top = array_pop(array_keys($data));
+        $tmp = array_keys($data); //to get past error_reporting E_STRICT for Travis
+        $top = array_pop($tmp);
         if ($top >= count($data)) {
             $this->errRow = count($data);
             return false;
