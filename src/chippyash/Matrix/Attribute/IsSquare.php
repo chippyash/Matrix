@@ -11,7 +11,6 @@ namespace chippyash\Matrix\Attribute;
 
 use chippyash\Matrix\Interfaces\AttributeInterface;
 use chippyash\Matrix\Matrix;
-use chippyash\Matrix\Exceptions\NotCompleteMatrixException;
 use chippyash\Matrix\Attribute\IsEmpty;
 use chippyash\Matrix\Attribute\IsComplete;
 

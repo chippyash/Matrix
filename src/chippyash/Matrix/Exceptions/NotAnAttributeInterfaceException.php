@@ -21,6 +21,6 @@ class NotAnAttributeInterfaceException extends MatrixException
     public function __construct($attr, $code = -1, $previous = null)
     {
         $message = sprintf($this->msgTpl, $attr);
-        parent::__construct($this->message, $code, $previous);
+        parent::__construct($message, $code, $previous);
     }
 }

@@ -56,7 +56,21 @@ class Rowslice extends AbstractTransformation
         }
         $this->assertMatrixIsComplete($mA);
 
-        $data = $mA->toArray(false);
+        return $this->doTransformation($mA, $row, $numRows);
+    }
+    
+    /**
+     * Carry out the transformation
+     * 
+     * @param \chippyash\Matrix\Matrix $mA
+     * @param int $row Start row
+     * @param int $numRows Number of rows
+     * 
+     * @return \chippyash\Matrix\Matrix
+     */
+    protected function doTransformation(Matrix $mA, $row, $numRows)
+    {
+        $data = $mA->toArray();
 
         return new Matrix(array_slice($data, $row-1, $numRows));
     }
