@@ -16,8 +16,17 @@ possible using PHP given that:
 
 The matrix  supplied in this library is a generic one. It treats a matrix as a
 data structure giving the ability to create matrices and carry out basic transformations.
-If you are looking for numeric or logical matrices, please see
-chippyash/Math/Matrix and chippyash/Logic/Matrix respectively.
+
+### Transformations supported
+
+*  Cofactor - return the cofactor matrix of a vertice
+*  Colreduce - return matrix reduced by 1+ columns
+*  Colslice - return a slice (1+) of the matrix columns
+*  Diagonal - reduce a matrix to its diagonal elements substituting non diagonal entries with zero
+*  MFunction - apply a function to every entry in the matrix
+*  Rowreduce - return matrix reduce by 1+ rows
+*  Rowslice - return a slice (1+) of matrix rows
+*  Transpose - return matrix with rows and columns swapped around the diagonal
 
 The library is released under the [GNU GPL V3 or later license](http://www.gnu.org/copyleft/gpl.html)
 
@@ -37,6 +46,11 @@ The current library covers basic matrix manipulation.  The library will cover mo
 well known generic matrix transformations and derivatives.
 
 If you want more, either suggest it, or better still, fork it and provide a pull request.
+
+### In the pipeline
+
+*  Logical/Matrix - Boolean operations on logical matrices
+*  Math/Matrix - Mathematical operations on matrices consisting of rational numbers
 
 ## How
 
