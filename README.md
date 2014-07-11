@@ -1,5 +1,7 @@
 # chippyash/Matrix
 
+[![Build Status](https://travis-ci.org/chippyash/Matrix.svg?branch=master)](https://travis-ci.org/chippyash/Matrix)
+
 ## What?
 
 This library aims to provide basic matrix functionality in the most efficient way
