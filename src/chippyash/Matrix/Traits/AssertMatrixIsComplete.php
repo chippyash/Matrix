@@ -21,13 +21,12 @@ Trait AssertMatrixIsComplete
      * Run test to ensure matrix is complete i.e. fully populated
      *
      * @param \chippyash\Matrix\Matrix $matrix
-     * @param string $msg Optional message - ignored
      *
      * @return Fluent Interface
      *
      * @throws NotCompleteMatrixException
      */
-    protected function assertMatrixIsComplete(Matrix $matrix, $msg = null)
+    protected function assertMatrixIsComplete(Matrix $matrix)
     {
         $test = new IsComplete();
 
