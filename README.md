@@ -1,5 +1,7 @@
 # chippyash/Matrix
 
+## Quality Assurance
+
 [![Build Status](https://travis-ci.org/chippyash/Matrix.svg?branch=master)](https://travis-ci.org/chippyash/Matrix)
 [![Coverage Status](https://coveralls.io/repos/chippyash/Matrix/badge.png)](https://coveralls.io/r/chippyash/Matrix)
 
