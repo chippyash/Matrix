@@ -172,13 +172,24 @@ NB. Make sure you rebase to HEAD before your pull request
 
 ## Where?
 
-The library is hosted at [Github](https://github.com/chippyash/Matrix). It will
-appear at [Packagist.org](https://packagist.org/) in due course as a
-[Composable](https://getcomposer.org/) module
+The library is hosted at [Github](https://github.com/chippyash/Matrix). It is
+available at [Packagist.org](https://packagist.org/packages/chippyash/matrix) 
 
 ### Installation
 
-Install [Composer] (https://getcomposer.org/)
+Install [Composer](https://getcomposer.org/)
+
+#### For production
+
+add 
+
+<pre>
+    "chippyash/matrix": "~1.0"
+</pre>
+
+to your composer.json "requires" section
+
+#### For development
 
 Clone this repo, and then run Composer in local repo root to pull in dependencies
 
