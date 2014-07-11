@@ -339,7 +339,6 @@ class Matrix implements InvokableInterface
      * @return boolean
      *
      * @throws chippyash\Matrix\Exceptions\NotCompleteMatrixException
-     * @todo use AssertMatrixIsComplete trait
      */
     protected function enforceCompleteness()
     {
