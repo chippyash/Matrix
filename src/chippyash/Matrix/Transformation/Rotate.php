@@ -17,7 +17,7 @@ use chippyash\Matrix\Traits\AssertMatrixIsComplete;
 /**
  * Rotate a matrix by 90, 180 or 270 degrees
  * Rotations are all counter clockwise so a 270 degree rotation == 90 deg clockwise
- * 
+ *
  * @link http://en.wikipedia.org/wiki/Rotation_matrix
  */
 class Rotate extends AbstractTransformation
@@ -78,31 +78,13 @@ class Rotate extends AbstractTransformation
         $result = [];
         for ($row = 0; $row < $mA->rows(); $row++) {
             for ($col = 0; $col < $mA->columns(); $col++) {
-                list($nRow, $nCol) = $this->rot($row, $col, $rotationMatrix);
+                $nRow = $rotationMatrix[0][1] * $col + $rotationMatrix[0][0] * $row;
+                $nCol = $rotationMatrix[1][1] * $col + $rotationMatrix[1][0] * $row;
                 $result[$nRow][$nCol] = $source[$row][$col];
             }
         }
 
         return new Matrix($this->rebase($result));
-    }
-
-    /**
-     * Find new vertice after rotation
-     *
-     * [a, b]   [y]    [bx + ay]
-     * [c, d] . [x] =  [dx + cy]
-     *
-     * @param int $y Y coord (row)
-     * @param int $x X coord (column)
-     * @param array $r rotation matrix
-     * @return array
-     */
-    protected function rot($y, $x, array $r)
-    {
-        $ny = $r[0][1] * $x + $r[0][0] * $y;
-        $nx = $r[1][1] * $x + $r[1][0] * $y;
-
-        return [$ny, $nx];
     }
 
     /**
