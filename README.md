@@ -188,7 +188,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/matrix": "~1.0"
+    "chippyash/matrix": "~1.1.0"
 </pre>
 
 to your composer.json "requires" section
@@ -221,3 +221,6 @@ V1.1.0 New transformations
 *  Concatenate
 *  Stack
 *  Rotate
+
+V1.1.1 Code analysis conformance
+V1.1.2 Update readme
