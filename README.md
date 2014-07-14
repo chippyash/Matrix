@@ -20,12 +20,15 @@ data structure giving the ability to create matrices and carry out basic transfo
 ### Transformations supported
 
 *  Cofactor - return the cofactor matrix of a vertice
+*  Concatenate - return matrix with extra matrix appended to the right
 *  Colreduce - return matrix reduced by 1+ columns
 *  Colslice - return a slice (1+) of the matrix columns
 *  Diagonal - reduce a matrix to its diagonal elements substituting non diagonal entries with zero
 *  MFunction - apply a function to every entry in the matrix
-*  Rowreduce - return matrix reduce by 1+ rows
+*  Rotate - rotate matrix through 90, 180 or 270 degrees
+*  Rowreduce - return matrix reduced by 1+ rows
 *  Rowslice - return a slice (1+) of matrix rows
+*  Stack - return matrix stacked on top of extra matrix
 *  Transpose - return matrix with rows and columns swapped around the diagonal
 
 The library is released under the [GNU GPL V3 or later license](http://www.gnu.org/copyleft/gpl.html)
@@ -173,7 +176,7 @@ NB. Make sure you rebase to HEAD before your pull request
 ## Where?
 
 The library is hosted at [Github](https://github.com/chippyash/Matrix). It is
-available at [Packagist.org](https://packagist.org/packages/chippyash/matrix) 
+available at [Packagist.org](https://packagist.org/packages/chippyash/matrix)
 
 ### Installation
 
@@ -181,7 +184,7 @@ Install [Composer](https://getcomposer.org/)
 
 #### For production
 
-add 
+add
 
 <pre>
     "chippyash/matrix": "~1.0"
@@ -205,3 +208,15 @@ To run the tests:
     cd Matrix
     vendor/bin/phpunit -c test/phpunit.xml test/
 </pre>
+
+## History
+
+V1.0.0 Original release
+
+V1.0.1 Minor bug fixes
+
+V1.1.0 New transformations
+
+*  Concatenate
+*  Stack
+*  Rotate

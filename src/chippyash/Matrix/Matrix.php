@@ -79,15 +79,23 @@ class Matrix implements InvokableInterface
      * Create a matrix, forcing completeness if required and filling in (normalizing)
      * missing vertices if required.
      *
-     * @param array $source Array to initialise the matrix with
+     * Passing in another Matrix as the $source simply clones the data from it and
+     * bypasses all checks
+     *
+     * @param Matrix|array $source Matrix or Array to initialise the matrix with
      * @param boolean $complete Check that matrix is X(Y1) == X(Yn)
      * @param boolean $normalize Normalize matrix by setting missing vertices
      * @param mixed $normalizeDefault Value to set missing vertices to if normalizing
      *
      * @throws \chippyash\Matrix\Exceptions\NotCompleteMatrixException
      */
-    public function __construct(array $source, $complete = false, $normalize= false, $normalizeDefault = null)
+    public function __construct($source, $complete = false, $normalize= false, $normalizeDefault = null)
     {
+        if ($source instanceof Matrix) {
+            $this->store($source->toArray());
+            return;
+        }
+        
         if (empty($source) || $source == [[]]) {
             $this->reset();
         } elseif (!is_array($source[0])) {

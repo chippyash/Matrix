@@ -218,6 +218,14 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testConstructWithMatrixParamReturnsMatrixDataClone()
+    {
+        $testData = [['foo',false],[1,15.2]];
+        $mA = new Matrix($testData);
+        $mB = new Matrix($mA);
+        $this->assertEquals($mA, $mB);
+    }
+
     /**
      * @expectedException chippyash\Matrix\Exceptions\VerticeOutOfBoundsException
      * @expectedExceptionMessage Vertice 'row' is out of bounds with value: 0
@@ -468,5 +476,4 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $mA = new Matrix([]);
         $mA('foo','bar','baz');
     }
-
 }
