@@ -50,9 +50,10 @@ well known generic matrix transformations and derivatives.
 
 If you want more, either suggest it, or better still, fork it and provide a pull request.
 
+Check out [chippyash/logical-matrix](https://github.com/chippyash/Logical-matrix) for a library that utilises this one
+
 ### In the pipeline
 
-*  Logical/Matrix - Boolean operations on logical matrices
 *  Math/Matrix - Mathematical operations on matrices consisting of rational numbers
 
 ## How
