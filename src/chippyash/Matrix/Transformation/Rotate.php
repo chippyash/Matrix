@@ -13,6 +13,7 @@ use chippyash\Matrix\Transformation\AbstractTransformation;
 use chippyash\Matrix\Exceptions\TransformationException;
 use chippyash\Matrix\Matrix;
 use chippyash\Matrix\Traits\AssertMatrixIsComplete;
+use chippyash\Matrix\Vector\VectorSet;
 
 /**
  * Rotate a matrix by 90, 180 or 270 degrees
@@ -29,6 +30,17 @@ class Rotate extends AbstractTransformation
     const ROT_180 = 1;    //rotate 180 deg (mirror vertically)
     const ROT_270 = 2;    //rotate clockwise 90 deg (270 deg anti clockwise)
 
+    /**
+     * Rotation matrices
+     *
+     * |Y|   |a,b| |y|
+     * |X| = |c,d|x|x|
+     *
+     *     = |bx + ay|
+     *       |dx + cy|
+     *
+     * @var array
+     */
     private $rotationMatrices = [
         self::ROT_90 => [[0,-1],[1,0]],
         self::ROT_180 => [[-1, 0],[0, -1]],
@@ -37,13 +49,14 @@ class Rotate extends AbstractTransformation
 
 
     /**
-     * Concatenate the $extra matrix to the right of $mA
+     * Rotate the matrix through 90, 180 or 270 degrees
      *
      * @param Matrix $mA First matrix operand - required
      * @param int $extra Rotation degrees - default null = self::ROT_90 (counter clockwise)
      *
      * @return Matrix
      *
+     * @throws \chippyash\Matrix\Exceptions\TransformationException
      */
     public function transform(Matrix $mA, $extra = null)
     {
@@ -74,34 +87,17 @@ class Rotate extends AbstractTransformation
      */
     protected function rotate(Matrix $mA, array $rotationMatrix)
     {
-        $source = $mA->toArray();
-        $result = [];
-        for ($row = 0; $row < $mA->rows(); $row++) {
-            for ($col = 0; $col < $mA->columns(); $col++) {
-                $nRow = $rotationMatrix[0][1] * $col + $rotationMatrix[0][0] * $row;
-                $nCol = $rotationMatrix[1][1] * $col + $rotationMatrix[1][0] * $row;
-                $result[$nRow][$nCol] = $source[$row][$col];
-            }
-        }
+        $a = $rotationMatrix[0][0];
+        $b = $rotationMatrix[0][1];
+        $c = $rotationMatrix[1][0];
+        $d = $rotationMatrix[1][1];
+        $f = function($x, $y, $val) use ($a, $b, $c, $d) {
+            $nY = $b * $x + $a * $y;
+            $nX = $d * $x + $c * $y;
+            return [$nX, $nY, $val];
+        };
 
-        return new Matrix($this->rebase($result));
-    }
-
-    /**
-     * Sort and rebase the result array to zero
-     *
-     * @param array $a
-     * @return array
-     */
-    protected function rebase(array $a)
-    {
-        $res = [];
-        ksort($a);
-        foreach(array_values($a) as $row) {
-            ksort($row);
-            $res[] = array_values($row);
-        }
-
-        return $res;
+        $vS = new VectorSet();
+        return $vS->fromMatrix($mA)->translate($f)->toMatrix();
     }
 }
