@@ -8,14 +8,13 @@
 
 ## What?
 
-This library aims to provide basic matrix functionality in the most efficient way
-possible using PHP given that:
+This library aims to provide matrix transformation functionality given that:
 
 *  Everything has a test case
 *  It's PHP 5.4+
 
 The matrix  supplied in this library is a generic one. It treats a matrix as a
-data structure giving the ability to create matrices and carry out basic transformations.
+data structure giving the ability to create matrices and carry out transformations.
 
 ### Transformations supported
 
@@ -25,6 +24,7 @@ data structure giving the ability to create matrices and carry out basic transfo
 *  Colslice - return a slice (1+) of the matrix columns
 *  Diagonal - reduce a matrix to its diagonal elements substituting non diagonal entries with zero
 *  MFunction - apply a function to every entry in the matrix
+*  Reflect - reflect matrix on X plane, Y plane, y=x plane and through origin
 *  Rotate - rotate matrix through 90, 180 or 270 degrees
 *  Rowreduce - return matrix reduced by 1+ rows
 *  Rowslice - return a slice (1+) of matrix rows
@@ -223,4 +223,9 @@ V1.1.0 New transformations
 *  Rotate
 
 V1.1.1 Code analysis conformance
+
 V1.1.2 Update readme
+
+V1.2.0 New transformation
+
+* Reflect

@@ -95,13 +95,16 @@ class Matrix implements InvokableInterface
             $this->store($source->toArray());
             return;
         }
-        
+
         if (empty($source) || $source == [[]]) {
             $this->reset();
-        } elseif (!is_array($source[0])) {
-            $this->store(array($source));
         } else {
-            $this->store($source);
+            $minRow = min(array_keys($source));
+            if (!is_array($source[$minRow])) {
+                $this->store(array($source));
+            } else {
+                $this->store($source);
+            }
         }
 
         if ($normalize) {

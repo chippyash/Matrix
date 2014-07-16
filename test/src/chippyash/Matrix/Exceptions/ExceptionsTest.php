@@ -17,6 +17,7 @@ class ExceptionsTest extends \PHPUnit_Framework_TestCase
             'FormatterNotSet' => new Exceptions\FormatterNotSetException('foo'),
             'NotAnAttributeInterface' => new Exceptions\NotAnAttributeInterfaceException('foo'),
             'NotCompleteMatrix' => new Exceptions\NotCompleteMatrixException(2),
+            'Vector' => new Exceptions\VectorException('foo'),
             'VerticeNotFound' => new Exceptions\VerticeNotFoundException(2,2),
             'VerticeOutOfBounds' => new Exceptions\VerticeOutOfBoundsException('foo', 2),
             'Transformation' => new Exceptions\TransformationException('foo')
