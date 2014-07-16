@@ -9,10 +9,13 @@
 
 namespace chippyash\Matrix\Exceptions;
 
+use chippyash\Matrix\Exceptions\MatrixException;
+
 /**
  * Base Vector exception
  */
-class VectorException extends \Exception {
+class VectorException extends MatrixException
+{
 
     protected $msgTpl = "Vector exception: %s";
 

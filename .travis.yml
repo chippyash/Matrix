@@ -13,11 +13,11 @@ php:
 before_script:
   - composer install --dev --no-interaction
   - mkdir -p build/logs
-  
+
 script:
   - phpunit --configuration phpunit.travis.xml --coverage-clover build/logs/clover.xml
-  
-after_script:
+
+after_success:
     - php vendor/bin/coveralls -v
 
 # configure notifications (email, IRC, campfire etc)
