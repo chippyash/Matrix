@@ -229,3 +229,5 @@ V1.1.2 Update readme
 V1.2.0 New transformation
 
 * Reflect
+
+V1.2.1 Code analysis conformance

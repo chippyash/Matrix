@@ -36,8 +36,10 @@ class VectorSet extends ZArrayObject
     public function fromMatrix(Matrix $mA)
     {
         $data = $mA->toArray();
-        for ($y = 0; $y < $mA->rows(); $y++) {
-            for ($x = 0; $x < $mA->columns(); $x++) {
+        $rows = $mA->rows();
+        $cols = $mA->columns();
+        for ($y = 0; $y < $rows; $y++) {
+            for ($x = 0; $x < $cols; $x++) {
                 $this->append(new Vector2D($x, $y, $data[$y][$x]));
             }
         }
