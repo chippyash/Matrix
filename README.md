@@ -188,7 +188,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/matrix": "~1.1.0"
+    "chippyash/matrix": "~1.2.0"
 </pre>
 
 to your composer.json "requires" section
