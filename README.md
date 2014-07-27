@@ -231,3 +231,5 @@ V1.2.0 New transformation
 * Reflect
 
 V1.2.1 Code analysis conformance
+
+V1.2.2 Fix Ascii formatter to work with descendent matrices
