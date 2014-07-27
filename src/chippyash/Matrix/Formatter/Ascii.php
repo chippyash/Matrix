@@ -43,11 +43,11 @@ class Ascii implements FormatterInterface
     public function format(Matrix $mA, array $options = array())
     {
         $this->setOptions($options);
-
+        //cast incoming matrix to base matrix to ensure compatibility with the formatter
         $output = $this->box(
                 $this->getLines(
                         $this->convert(
-                                $mA
+                                new Matrix($mA->toArray())
                         )
                 )
         );
