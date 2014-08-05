@@ -67,7 +67,7 @@ abstract class AbstractTransformation implements TransformationInterface
             return $result;
         }
 
-        return new $oClass($result);
+        return new $oClass($result->toArray());
     }
 
     /**
