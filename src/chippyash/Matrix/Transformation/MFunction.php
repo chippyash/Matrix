@@ -34,7 +34,7 @@ class MFunction extends AbstractTransformation
      *
      * @throws chippyash/Matrix/Exceptions/ComputationException
      */
-    public function transform(Matrix $mA, $extra = null)
+    protected function doTransform(Matrix $mA, $extra = null)
     {
         $this->assertMatrixIsComplete($mA);
 

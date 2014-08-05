@@ -33,7 +33,7 @@ class Colreduce extends AbstractTransformation
      *
      * @throws chippyash/Matrix/Exceptions/MatrixException
      */
-    public function transform(Matrix $mA, $extra = null)
+    protected function doTransform(Matrix $mA, $extra = null)
     {
         if ($mA->is('empty')) {
             return new Matrix([]);

@@ -36,7 +36,7 @@ class Concatenate extends AbstractTransformation
      * @return Matrix
      *
      */
-    public function transform(Matrix $mA, $extra = null)
+    protected function doTransform(Matrix $mA, $extra = null)
     {
         $this->assertParameterIsMatrix($extra)
              ->assertMatrixRowsAreEqual($mA, $extra)
