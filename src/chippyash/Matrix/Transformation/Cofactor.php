@@ -36,7 +36,7 @@ class Cofactor extends AbstractTransformation
      * @throws chippyash/Matrix/Exceptions/MatrixException
      * @throws chippyash/Matrix/Exceptions/UndefinedMatrixException
      */
-    public function transform(Matrix $mA, $extra = null)
+    protected function doTransform(Matrix $mA, $extra = null)
     {
         if ($mA->is('empty')) {
             return new Matrix([]);

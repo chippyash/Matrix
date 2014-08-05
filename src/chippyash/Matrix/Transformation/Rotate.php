@@ -58,7 +58,7 @@ class Rotate extends AbstractTransformation
      *
      * @throws \chippyash\Matrix\Exceptions\TransformationException
      */
-    public function transform(Matrix $mA, $extra = null)
+    protected function doTransform(Matrix $mA, $extra = null)
     {
         if (is_null($extra)) {
             $extra = self::ROT_90;

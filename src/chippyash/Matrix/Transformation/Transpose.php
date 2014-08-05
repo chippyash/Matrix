@@ -31,7 +31,7 @@ class Transpose extends AbstractTransformation
      *
      * @throws chippyash/Matrix/Exceptions/MatrixException
      */
-    public function transform(Matrix $mA, $extra = null)
+    protected function doTransform(Matrix $mA, $extra = null)
     {
         $this->assertMatrixIsComplete($mA);
 

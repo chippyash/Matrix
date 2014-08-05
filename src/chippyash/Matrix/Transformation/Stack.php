@@ -38,7 +38,7 @@ class Stack extends AbstractTransformation
      * @return Matrix
      *
      */
-    public function transform(Matrix $mA, $extra = null)
+    protected function doTransform(Matrix $mA, $extra = null)
     {
         $this->assertParameterIsMatrix($extra)
              ->assertMatrixColumnsAreEqual($mA, $extra)

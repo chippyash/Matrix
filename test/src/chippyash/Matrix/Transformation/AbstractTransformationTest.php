@@ -2,6 +2,8 @@
 namespace chippyash\Test\Matrix\Computation;
 use chippyash\Matrix\Matrix;
 
+class stubDescendentMatrix extends Matrix{}
+
 /**
  *
  * @author akitson
@@ -37,6 +39,9 @@ class AbstractTransformationTest extends \PHPUnit_Framework_TestCase
 
     public function testInvokeCanAcceptTwoArguments()
     {
+        $this->object->expects($this->any())
+                ->method('doTransform')
+                ->will($this->returnValue(new Matrix(['foo'])));
         $f = $this->object;
         $f(new Matrix(array()),'bar');
     }
@@ -47,11 +52,21 @@ class AbstractTransformationTest extends \PHPUnit_Framework_TestCase
     public function testInvokeProxiesToCompute()
     {
         $this->object->expects($this->any())
-                ->method('transform')
+                ->method('doTransform')
                 ->will($this->returnValue(new Matrix(['foo'])));
         $f = $this->object;
         $m = new Matrix(array());
         $this->assertInstanceOf('chippyash\Matrix\Matrix', $f($m));
         $this->assertEquals(array(array('foo')), $f($m)->toArray());
+    }
+
+    public function testDescendentMatricesAreReturnedWithCorrectClass()
+    {
+        $stub = new stubDescendentMatrix([2]);
+        $this->object->expects($this->any())
+                ->method('doTransform')
+                ->will($this->returnValue(new Matrix(['foo'])));
+        $f = $this->object;
+        $this->assertInstanceOf('chippyash\Test\Matrix\Computation\stubDescendentMatrix', $f($stub));
     }
 }
