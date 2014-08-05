@@ -188,7 +188,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/matrix": "~1.2.0"
+    "chippyash/matrix": ">=1.2.3"
 </pre>
 
 to your composer.json "requires" section
@@ -233,3 +233,5 @@ V1.2.0 New transformation
 V1.2.1 Code analysis conformance
 
 V1.2.2 Fix Ascii formatter to work with descendent matrices
+
+V1.2.3 Fix transformations to work with descendent matrices
