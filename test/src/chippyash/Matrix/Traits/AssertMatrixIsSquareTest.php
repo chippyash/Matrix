@@ -32,20 +32,22 @@ class AssertMatrixIsSquareTest extends \PHPUnit_Framework_TestCase
         $this->mD = new Matrix([1]);
     }
 
-    /**
-     * @covers chippyash\Matrix\Traits\AssertMatrixIsSquare::assertMatrixIsSquare
-     */
     public function testSquareMatrixReturnsClass()
     {
         $this->assertInstanceOf(
                 'chippyash\Test\Matrix\Traits\stubTraitAssertMatrixIsSquare',
-                $this->object->test($this->mA));
+                $this->object->test($this->mA)); //filled
+        $this->assertInstanceOf(
+                'chippyash\Test\Matrix\Traits\stubTraitAssertMatrixIsSquare',
+                $this->object->test($this->mC)); //empty
+        $this->assertInstanceOf(
+                'chippyash\Test\Matrix\Traits\stubTraitAssertMatrixIsSquare',
+                $this->object->test($this->mD)); //single item
     }
 
     /**
      * @expectedException chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage Matrix is not square
-     * @covers chippyash\Matrix\Traits\AssertMatrixIsSquare::assertMatrixIsSquare
      */
     public function testNonSquareMatrixThrowsException()
     {
@@ -55,30 +57,9 @@ class AssertMatrixIsSquareTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage foo
-     * @covers chippyash\Matrix\Traits\AssertMatrixIsSquare::assertMatrixIsSquare
      */
     public function testNonSquareMatrixThrowsExceptionWithUserMessage()
     {
         $this->object->test($this->mB, 'foo');
-    }
-
-    /**
-     * @expectedException chippyash\Matrix\Exceptions\MatrixException
-     * @expectedExceptionMessage Matrix is not square
-     * @covers chippyash\Matrix\Traits\AssertMatrixIsSquare::assertMatrixIsSquare
-     */
-    public function testEmptyMatrixThrowsException()
-    {
-        $this->object->test($this->mC);
-    }
-
-    /**
-     * @expectedException chippyash\Matrix\Exceptions\MatrixException
-     * @expectedExceptionMessage Matrix is not square
-     * @covers chippyash\Matrix\Traits\AssertMatrixIsSquare::assertMatrixIsSquare
-     */
-    public function testSingleItemMatrixThrowsException()
-    {
-        $this->object->test($this->mD);
     }
 }

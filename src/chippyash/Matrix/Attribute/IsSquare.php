@@ -11,13 +11,12 @@ namespace chippyash\Matrix\Attribute;
 
 use chippyash\Matrix\Interfaces\AttributeInterface;
 use chippyash\Matrix\Matrix;
-use chippyash\Matrix\Attribute\IsEmpty;
 use chippyash\Matrix\Attribute\IsComplete;
 
 /**
  * Square attribute
  *
- * A square matrix is a non empty, complete matrix with m>1, n>1, m==n
+ * A square matrix is a complete matrix with m==n
  */
 class IsSquare implements AttributeInterface
 {
@@ -29,10 +28,7 @@ class IsSquare implements AttributeInterface
      */
     public function is(Matrix $mA)
     {
-        $isEmpty = new IsEmpty();
-        if ($isEmpty->is($mA)) {
-            return false;
-        }
+        //nb isComplete will return true if mA is empty
         $isComplete = new IsComplete();
         if (!$isComplete->is($mA)) {
             return false;
@@ -40,6 +36,6 @@ class IsSquare implements AttributeInterface
         $m = $mA->rows();
         $n = $mA->columns();
 
-        return ($m == $n && $m > 1);
+        return ($m == $n);
     }
 }

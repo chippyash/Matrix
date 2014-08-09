@@ -18,24 +18,11 @@ class CofactorTest extends \PHPUnit_Framework_TestCase
         $this->object = new Cofactor();
     }
 
-    /**
-     * @covers chippyash\Matrix\Transformation\Cofactor::transform()
-     */
     public function testEmptyMatrixReturnsEmptyMatrix()
     {
         $mA = new Matrix(array());
         $test = $this->object->transform($mA, array());
         $this->assertTrue($test->is('Empty'));
-    }
-
-    /**
-     * @expectedException chippyash\Matrix\Exceptions\MatrixException
-     * @expectedExceptionMessage Matrix is not square
-     */
-    public function testNotSquareMatrixThrowsException()
-    {
-        $mA = new Matrix(array(array(1,2,3),array(1,2,3)));
-        $test = $this->object->transform($mA, array());
     }
 
     /**
@@ -98,9 +85,6 @@ class CofactorTest extends \PHPUnit_Framework_TestCase
         $this->object->transform($m, array(1,4));
     }
 
-    /**
-     * @covers chippyash\Matrix\Transformation\Cofactor::transform()
-     */
     public function testTransformReturnsCorrectResult()
     {
         $mA = new Matrix($this->testArray);
