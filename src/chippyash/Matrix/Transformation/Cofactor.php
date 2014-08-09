@@ -14,7 +14,6 @@ use chippyash\Matrix\Transformation\Rowreduce;
 use chippyash\Matrix\Transformation\Colreduce;
 use chippyash\Matrix\Matrix;
 use chippyash\Matrix\Exceptions\MatrixException;
-use chippyash\Matrix\Traits\AssertMatrixIsSquare;
 use chippyash\Matrix\Traits\AssertParameterIsArray;
 
 /**
@@ -22,7 +21,6 @@ use chippyash\Matrix\Traits\AssertParameterIsArray;
  */
 class Cofactor extends AbstractTransformation
 {
-    use AssertMatrixIsSquare;
     use AssertParameterIsArray;
 
     /**
@@ -41,8 +39,7 @@ class Cofactor extends AbstractTransformation
         if ($mA->is('empty')) {
             return new Matrix([]);
         }
-        $this->assertMatrixIsSquare($mA)
-             ->assertParameterIsArray($extra, 'Second operand is not an array');
+        $this->assertParameterIsArray($extra, 'Second operand is not an array');
 
         if (count($extra) != 2) {
             throw new MatrixException('Second operand does not contain row and column');

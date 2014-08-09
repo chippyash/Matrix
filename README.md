@@ -16,21 +16,6 @@ This library aims to provide matrix transformation functionality given that:
 The matrix  supplied in this library is a generic one. It treats a matrix as a
 data structure giving the ability to create matrices and carry out transformations.
 
-### Transformations supported
-
-*  Cofactor - return the cofactor matrix of a vertice
-*  Concatenate - return matrix with extra matrix appended to the right
-*  Colreduce - return matrix reduced by 1+ columns
-*  Colslice - return a slice (1+) of the matrix columns
-*  Diagonal - reduce a matrix to its diagonal elements substituting non diagonal entries with zero
-*  MFunction - apply a function to every entry in the matrix
-*  Reflect - reflect matrix on X plane, Y plane, y=x plane and through origin
-*  Rotate - rotate matrix through 90, 180 or 270 degrees
-*  Rowreduce - return matrix reduced by 1+ rows
-*  Rowslice - return a slice (1+) of matrix rows
-*  Stack - return matrix stacked on top of extra matrix
-*  Transpose - return matrix with rows and columns swapped around the diagonal
-
 The library is released under the [GNU GPL V3 or later license](http://www.gnu.org/copyleft/gpl.html)
 
 ## Why?
@@ -83,6 +68,22 @@ A basic Matrix type is supplied
 
 *  Matrix(array $source, bool $complete = false, bool $normalize= false, bool $normalizeDefault = null)
 
+Matrices are 1 based, not 0 (zero) based
+
+The following methods on a matrix are supported:
+
+*  toArray() : array - return matrix data as an array
+*  rows(): int - number of rows (n) in the matrix
+*  columns(): int - number of columns (m) in the matrix
+*  vertices(): int - number of entries in matrix (== n * m)
+*  get(int $row > 0, int $col > 0): mixed - return single entry from matrix.
+*  is(string $attribute): boolean - see attributes below
+*  test(string $attribute): boolean - Raw form of is() method. You can use this to test for attributes
+   not supplied with the library by passing in $attribute conforming to AttributeInterface
+*  transform(TransformationInterface $transformation, $extra = null): Matrix - see transformations below
+*  setFormatter(FormatterInterface $formatter): fluent - set a display formatter
+*  display(): mixed -  Return the matrix in some displayable format
+
 #### Matrices are immutable
 
 No operation on a matrix will change the internal structure of the matrix.  Any
@@ -92,15 +93,25 @@ This allows for arithmetic stability.
 #### Matrices have attributes
 
 *  Attributes always return a boolean.
-*  You can use the is() method of a Matrix to test for an attribute
 *  Attributes implement the chippyash\Matrix\Interfaces\AttributeInterface
-
+*  You can use the is() method of a Matrix to test for an attribute
 <pre>
-    if ($mA->is('binary')) {}
+    if ($mA->is('square')) {}
     //is the same as
-    $attr = new Matrix/Attribute/IsBinary();
+    $attr = new Matrix/Attribute/IsSquare();
     if ($attr($mA) {}
 </pre>
+
+Attributes supported:
+
+*  IsColumnvector() - Is the matrix a column vector?
+*  IsComplete() - Does the matrix have all its entries present?
+*  IsDiagonal() - Are only entries on the main diagonal non-zero?
+*  IsEmpty() - Is the matrix an empty one?
+*  IsRectangle() - Is matrix non-empty and non-square?
+*  IsRowVector() - Is the matrix a row vector?
+*  IsSquare() - Is the matrix square? i.e. n == m & n >= 0
+
 
 #### Matrices can be transformed
 
@@ -114,7 +125,25 @@ This allows for arithmetic stability.
     //same as :
     $comp = new Matrix\Transformation\Transpose;
     $mB = $comp($mA);
+    //or
+    $mB = $mA->transform($comp);
 </pre>
+
+Transformations supported:
+
+*  Cofactor - return the cofactor matrix of a vertice
+*  Colreduce - return matrix reduced by 1+ columns
+*  Colslice - return a slice (1+) of the matrix columns
+*  Concatenate - return matrix with extra matrix appended to the right
+*  Diagonal - reduce a matrix to its diagonal elements substituting non diagonal entries with zero
+*  MFunction - apply a function to every entry in the matrix
+*  Reflect - reflect matrix on X plane, Y plane, y=x plane and through origin
+*  Rotate - rotate matrix through 90, 180 or 270 degrees
+*  Rowreduce - return matrix reduced by 1+ rows
+*  Rowslice - return a slice (1+) of matrix rows
+*  Stack - return matrix stacked on top of extra matrix
+*  Transpose - return matrix with rows and columns swapped around the diagonal
+
 
 #### The magic invoke methods allow you to write in a functional way
 
@@ -188,7 +217,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/matrix": ">=1.2.3"
+    "chippyash/matrix": ">=1.2.4"
 </pre>
 
 to your composer.json "requires" section
@@ -235,3 +264,7 @@ V1.2.1 Code analysis conformance
 V1.2.2 Fix Ascii formatter to work with descendent matrices
 
 V1.2.3 Fix transformations to work with descendent matrices
+
+V1.2.4 Amend IsSquare attribute test to accept empty matrix as square
+
+    Update documentation

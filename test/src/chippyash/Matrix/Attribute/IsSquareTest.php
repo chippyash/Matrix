@@ -25,19 +25,19 @@ class IsSquareTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers chippyash\Matrix\Attribute\IsSquare::is()
      */
-    public function testEmptyMatrixReturnsFalse()
+    public function testEmptyMatrixReturnsTrue()
     {
-        $mA = new Matrix(array());
-        $this->assertFalse($this->object->is($mA));
+        $mA = new Matrix([]);
+        $this->assertTrue($this->object->is($mA));
     }
 
     /**
      * @covers chippyash\Matrix\Attribute\IsSquare::is()
      */
-    public function testSingleItemMatrixReturnsFalse()
+    public function testSingleItemMatrixReturnsTrue()
     {
-        $mA = new Matrix(array(1));
-        $this->assertFalse($this->object->is($mA));
+        $mA = new Matrix([1]);
+        $this->assertTrue($this->object->is($mA));
     }
 
     /**
@@ -45,7 +45,7 @@ class IsSquareTest extends \PHPUnit_Framework_TestCase
      */
     public function testIncompleteMatrixReturnsFalse()
     {
-        $mA = new Matrix(array(array(1, 2), array(1)));
+        $mA = new Matrix([[1, 2], [1]]);
         $this->assertFalse($this->object->is($mA));
     }
 
@@ -54,7 +54,7 @@ class IsSquareTest extends \PHPUnit_Framework_TestCase
      */
     public function testSquareMatrixReturnsTrue()
     {
-        $mA = new Matrix(array(array(1, 2), array(2,1)));
+        $mA = new Matrix([[1, 2], [2, 1]]);
         $this->asserttrue($this->object->is($mA));
     }
 

@@ -18,6 +18,13 @@ class ColreduceTest extends \PHPUnit_Framework_TestCase
         $this->object = new Colreduce();
     }
 
+    public function testEmptyMatrixReturnsEmptyMatrix()
+    {
+        $mA = new Matrix(array());
+        $test = $this->object->transform($mA, array(1));
+        $this->assertTrue($test->is('Empty'));
+    }
+
     /**
      * @expectedException chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage Second operand is not an array
@@ -58,9 +65,6 @@ class ColreduceTest extends \PHPUnit_Framework_TestCase
         $this->object->transform($m, array(4));
     }
 
-    /**
-     * @covers chippyash\Matrix\Transformation\Colreduce::transform()
-     */
     public function testTransformReducesByOneColumnIfNumcolsNotGiven()
     {
         $m = new Matrix($this->testArray);
@@ -97,19 +101,6 @@ class ColreduceTest extends \PHPUnit_Framework_TestCase
         $this->object->transform($m, array(1));
     }
 
-    /**
-     * @covers chippyash\Matrix\Transformation\Colreduce::transform()
-     */
-    public function testEmptyMatrixReturnsEmptyMatrix()
-    {
-        $mA = new Matrix(array());
-        $test = $this->object->transform($mA, array(1));
-        $this->assertTrue($test->is('Empty'));
-    }
-
-    /**
-     * @covers chippyash\Matrix\Transformation\Colreduce::transform()
-     */
     public function testTransformReturnsCorrectResult()
     {
         $mA = new Matrix($this->testArray);
