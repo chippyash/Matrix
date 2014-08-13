@@ -260,6 +260,30 @@ class Matrix implements InvokableInterface
     }
 
     /**
+     * Test equality of this matrix with another
+     * mA == mB iff
+     * - mA->rows() == mB->rows()
+     * - mA->columns() == mB->columns()
+     * - mA->get(i,j) ==[=] mB->get(i,j)
+     *
+     * @param \chippyash\Matrix\Matrix $mB
+     * @param boolean $strict Check type and value
+     *
+     * @return boolean
+     */
+    public function equality(Matrix $mB, $strict = true)
+    {
+        if ($this->rows() != $mB->rows()) {
+            return false;
+        }
+        if ($this->columns() != $mB->columns()) {
+            return false;
+        }
+
+        return $this->checkEntryEquality($mB, $strict);
+    }
+
+    /**
      * Invokable interface - allows object to be called as function
      * Proxies to transform e.g.
      * $matrix("Rowslice", array(1,2))
@@ -396,5 +420,37 @@ class Matrix implements InvokableInterface
                         $row += array_fill($len, $maxCols - $len, $default);
                     }
                 });
+    }
+
+    /**
+     * Check equality of each matrix entry
+     * Overide in child class if required
+     *
+     * @param \chippyash\Matrix\Matrix $mB
+     * @param boolean $strict
+     *
+     * @return boolean
+     */
+    protected function checkEntryEquality(Matrix $mB, $strict)
+    {
+        $dA = $this->toArray();
+        $dB = $mB->toArray();
+        $m = $this->rows();
+        $n = $this->columns();
+        for ($i=0; $i<$m; $i++) {
+            for ($j=0; $j<$n; $j++) {
+                if ($strict) {
+                    if ($dA[$i][$j] !== $dB[$i][$j]) {
+                        return false;
+                    }
+                } else {
+                    if ($dA[$i][$j] != $dB[$i][$j]) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 }

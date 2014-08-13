@@ -83,6 +83,11 @@ The following methods on a matrix are supported:
 *  transform(TransformationInterface $transformation, $extra = null): Matrix - see transformations below
 *  setFormatter(FormatterInterface $formatter): fluent - set a display formatter
 *  display(): mixed -  Return the matrix in some displayable format
+*  equality(Matrix $mB, boolean $strict = true): boolean - Is the matrix equal to matrix mB?
+     * mA->rows() == mB->rows()
+     * mA->columns() == mB->columns()
+     * mA->get(i,j) ==\[=\] mB->get(i,j)
+     If strict then type and value checked else only equivalence of value
 
 #### Matrices are immutable
 
@@ -217,7 +222,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/matrix": ">=1.2.4"
+    "chippyash/matrix": ">=1.2.5"
 </pre>
 
 to your composer.json "requires" section
@@ -268,3 +273,5 @@ V1.2.3 Fix transformations to work with descendent matrices
 V1.2.4 Amend IsSquare attribute test to accept empty matrix as square
 
     Update documentation
+
+V1.2.5 Add equality() method
