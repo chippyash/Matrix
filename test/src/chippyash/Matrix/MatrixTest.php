@@ -476,4 +476,78 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $mA = new Matrix([]);
         $mA('foo','bar','baz');
     }
+
+    /**
+     * mA == mB iff
+     * - mA->rows() == mB->rows()
+     * - mA->columns() == mB->columns()
+     * - mA->get(i,j) === mB->get(i,j)
+     */
+    public function testEqualityWithStrictCheckingReturnsTrueIfEqualityRulesAreMatched()
+    {
+        $mA = new Matrix([2]);
+        $mB = new Matrix([2]);
+        $this->assertTrue($mA->equality($mB));
+
+        $mC = new Matrix([['foo'],['bar'],['baz']]);
+        $mD = new Matrix([['foo'],['bar'],['baz']]);
+        $this->assertTrue($mC->equality($mD));
+
+        $mE = new Matrix([['foo','bar','baz']]);
+        $mF = new Matrix([['foo','bar','baz']]);
+        $this->assertTrue($mE->equality($mF));
+    }
+
+    public function testEqualityWithStrictCheckingReturnsFalseIfEqualityRulesAreNotMatched()
+    {
+        $mA = new Matrix([2]);
+        $mB = new Matrix(['foo']);
+        $this->assertFalse($mA->equality($mB));
+
+        $mC = new Matrix([['foo'],['bar'],['baz']]);
+        $mD = new Matrix([['foo','bar','baz']]);
+        $this->assertFalse($mC->equality($mD));
+
+        $mE = new Matrix([['foo','bar','baz']]);
+        $mF = new Matrix([['foo'],['bar'],['baz']]);
+        $this->assertFalse($mE->equality($mF));
+
+        $mG = new Matrix([2]);
+        $mH = new Matrix([2.6]);
+        $this->assertFalse($mG->equality($mH));
+
+        $mI = new Matrix([['foo','bar','baz']]);
+        $mJ = new Matrix([['foo','bar']]);
+        $this->assertFalse($mI->equality($mJ));
+    }
+
+    /**
+     * mA == mB iff
+     * - mA->rows() == mB->rows()
+     * - mA->columns() == mB->columns()
+     * - mA->get(i,j) == mB->get(i,j)
+     */
+    public function testEqualityWithLooseCheckingReturnsTrueIfEqualityRulesAreMatched()
+    {
+        $mA = new Matrix([2]);
+        $mB = new Matrix([2.0]);
+        $this->assertTrue($mA->equality($mB, false));
+
+        $mC = new Matrix([[123],[456],[789]]);
+        $mD = new Matrix([['123'],['456'],['789']]);
+        $this->assertTrue($mC->equality($mD, false));
+    }
+
+    public function testEqualityWithLooseCheckingReturnsFalseIfEqualityRulesAreNotMatched()
+    {
+        $mA = new Matrix([2]);
+        $mB = new Matrix([3.6]);
+        $this->assertFalse($mA->equality($mB, false));
+
+        $mC = new Matrix([[1234],[456],[789]]);
+        $mD = new Matrix([['123'],['456'],['789']]);
+        $this->assertFalse($mC->equality($mD), false);
+    }
+
+
 }
