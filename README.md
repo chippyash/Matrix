@@ -35,11 +35,14 @@ well known generic matrix transformations and derivatives.
 
 If you want more, either suggest it, or better still, fork it and provide a pull request.
 
-Check out [chippyash/logical-matrix](https://github.com/chippyash/Logical-matrix) for a library that utilises this one
+Check out [chippyash/Logical-Matrix](https://github.com/chippyash/Logical-matrix) for logical matrix operations
 
-### In the pipeline
+Check out [chippyash/Math-Matrix](https://github.com/chippyash/Math-Matrix) for mathematical matrix operations
 
-*  Math/Matrix - Mathematical operations on matrices consisting of rational numbers
+Check out [chippyash/Strong-Type](https://github.com/chippyashl/Strong-Type) for strong type including numeric,
+rational and complex type support
+
+Check out [chippyash/Math-Type-Calculator](https://github.com/chippyash/Math-Type-Calculator) for arithmetic operations on aforementioned strong types
 
 ## How
 
