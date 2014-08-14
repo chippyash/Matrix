@@ -278,3 +278,5 @@ V1.2.4 Amend IsSquare attribute test to accept empty matrix as square
     Update documentation
 
 V1.2.5 Add equality() method
+
+V1.2.6 Add ability to set the formatter on Debug trait

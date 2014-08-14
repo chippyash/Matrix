@@ -10,6 +10,7 @@ namespace chippyash\Matrix\Traits;
 
 use chippyash\Matrix\Matrix;
 use chippyash\Matrix\Formatter\Ascii;
+use chippyash\Matrix\Interfaces\FormatterInterface;
 
 /**
  * Adds dump of a matrix or array using the Ascii formatter
@@ -23,6 +24,10 @@ Trait Debug
      */
     protected $debug = false;
 
+    /**
+     * @var \chippyash\Matrix\Interfaces\FormatterInterface
+     */
+    protected $formatter;
 
     /**
      * Set the debug mode
@@ -37,17 +42,30 @@ Trait Debug
     }
 
     /**
+     *
+     * @param \chippyash\Matrix\Interfaces\FormatterInterface $formatter
+     * @return mixed Fluent Interface
+     */
+    public function setFormatter(FormatterInterface $formatter)
+    {
+        $this->formatter = $formatter;
+
+        return $this;
+    }
+
+    /**
      * Echo message + matrix|array to screen
      *
      * @param string $msg
      * @param \chippyash\Matrix\Matrix|array $aA
      * @return void
      * @throws \Exception
-     * @codeCoverageIgnore
      */
     protected function debug($msg, $aA)
     {
-        if (!$this->debug) return;
+        if (!$this->debug) {
+            return;
+        }
 
         $mA = (is_array($aA) ? new Matrix($aA) : ($aA instanceof Matrix ? $aA : false));
         if ($mA === false) {
@@ -55,10 +73,24 @@ Trait Debug
         }
         $out = $msg
              . PHP_EOL
-             . $mA->setFormatter(new Ascii())
+             . $mA->setFormatter($this->getFormatter())
                 ->display()
              . PHP_EOL;
 
         echo $out;
+    }
+
+    /**
+     * Get formatter - use default Ascii formatter if not set
+     *
+     * @return \chippyash\Matrix\Interfaces\FormatterInterface
+     */
+    protected function getFormatter()
+    {
+        if (empty($this->formatter)) {
+            $this->formatter = new Ascii();
+        }
+
+        return $this->formatter;
     }
 }
