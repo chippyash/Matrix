@@ -70,7 +70,7 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         $f = new \chippyash\Matrix\Formatter\Ascii();
         $this->assertInstanceOf(
                 'chippyash\Test\Matrix\Traits\stubTraitDebug',
-                $this->object->testSetFormatter($f));
+                $this->object->testSetFormatter($f, []));
     }
 
     /**
