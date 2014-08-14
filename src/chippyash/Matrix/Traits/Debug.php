@@ -30,6 +30,12 @@ Trait Debug
     protected $formatter;
 
     /**
+     *
+     * @var array
+     */
+    protected $formatterOptions = [];
+
+    /**
      * Set the debug mode
      *
      * @param boolean $flag
@@ -44,11 +50,14 @@ Trait Debug
     /**
      *
      * @param \chippyash\Matrix\Interfaces\FormatterInterface $formatter
+     * @param array $options options to be passed to formatter via matrix->display()
+     *
      * @return mixed Fluent Interface
      */
-    public function setFormatter(FormatterInterface $formatter)
+    public function setFormatter(FormatterInterface $formatter, array $options = [])
     {
         $this->formatter = $formatter;
+        $this->formatterOptions = $options;
 
         return $this;
     }
@@ -74,7 +83,7 @@ Trait Debug
         $out = $msg
              . PHP_EOL
              . $mA->setFormatter($this->getFormatter())
-                ->display()
+                ->display($this->formatterOptions)
              . PHP_EOL;
 
         echo $out;

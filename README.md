@@ -225,7 +225,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/matrix": ">=1.2.5"
+    "chippyash/matrix": ">=1.2.7"
 </pre>
 
 to your composer.json "requires" section
@@ -280,3 +280,5 @@ V1.2.4 Amend IsSquare attribute test to accept empty matrix as square
 V1.2.5 Add equality() method
 
 V1.2.6 Add ability to set the formatter on Debug trait
+
+V1.2.7 Add ability to set the formatter options for debug
