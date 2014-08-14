@@ -11,6 +11,11 @@ class stubTraitDebug
     {
         return $this->debug($msg, $matOrArr);
     }
+
+    public function testSetFormatter($f)
+    {
+        return $this->setFormatter($f);
+    }
 }
 
 class DebugTest extends \PHPUnit_Framework_TestCase
@@ -58,5 +63,23 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         ob_start();
         $this->object->test('foo', New Matrix([1]));
         $this->assertEmpty(ob_get_clean());
+    }
+
+    public function testSetFormatterReturnsObject()
+    {
+        $f = new \chippyash\Matrix\Formatter\Ascii();
+        $this->assertInstanceOf(
+                'chippyash\Test\Matrix\Traits\stubTraitDebug',
+                $this->object->testSetFormatter($f));
+    }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage Debug parameter is not an array or a matrix
+     */
+    public function testDebugWithInvalidParamThrowsException()
+    {
+        $this->object->setDebug();
+        $this->object->test('foo', New \stdClass);
     }
 }
