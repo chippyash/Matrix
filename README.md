@@ -284,3 +284,4 @@ V1.2.6 Add ability to set the formatter on Debug trait
 V1.2.7 Add ability to set the formatter options for debug
 
 V1.2.8 update phpunit to ~V4.3.0
+
