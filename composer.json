@@ -2,6 +2,8 @@
     "name": "chippyash/matrix",
     "description": "PHP Matrix data structure support package",
     "license": "GPL-3.0+",
+    "homepage" : "http://the-matrix.github.io/",
+    "keywords": ["math", "matrix'],
     "authors": [
         {
             "name": "Ashley Kitson",
