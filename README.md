@@ -2,9 +2,13 @@
 
 ## Quality Assurance
 
+Certified for PHP 5.4 - 5.6
+
 [![Build Status](https://travis-ci.org/chippyash/Matrix.svg?branch=master)](https://travis-ci.org/chippyash/Matrix)
 [![Coverage Status](https://coveralls.io/repos/chippyash/Matrix/badge.png)](https://coveralls.io/r/chippyash/Matrix)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b8a7e3f8-d33a-435f-a0e7-a4fdfb2e8318/mini.png)](https://insight.sensiolabs.com/projects/b8a7e3f8-d33a-435f-a0e7-a4fdfb2e8318)
+
+[Test Contract](https://github.com/chippyash/matrix/blob/master/docs/Test-Contract.md) in the docs directory.
 
 ## What?
 

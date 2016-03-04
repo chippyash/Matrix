@@ -7,6 +7,8 @@ php:
   - 5.4
   # aliased to a recent 5.5.x version
   - 5.5
+  # aliased to a recent 5.6.x version
+  - 5.6
 
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
@@ -18,7 +20,7 @@ script:
   - vendor/phpunit/phpunit/phpunit --configuration phpunit.travis.xml --coverage-clover build/logs/clover.xml
 
 after_success:
-    - php vendor/bin/coveralls -v
+  - php vendor/bin/coveralls -v
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
