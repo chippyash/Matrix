@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-PHPUnit configuration file to run chippyash\Matrix tests
+PHPUnit configuration file to run Chippyash\Matrix tests
 -->
 
 <!--
@@ -30,7 +30,6 @@ testSuiteLoaderFile="/path/to/StandardTestSuiteLoader.php"
          timeoutForSmallTests="1"
          timeoutForMediumTests="10"
          timeoutForLargeTests="60"
-         strict="false"
          verbose="false">
 
     <!--
@@ -42,9 +41,9 @@ testSuiteLoaderFile="/path/to/StandardTestSuiteLoader.php"
             <directory>../vendor</directory>
             <!-- don't cover MatrixException as it is an empty class and spooks
                  code coverage even though it is covered in the tests-->
-            <directory suffix="MatrixException.php">../src/chippyash/Matrix/Exceptions</directory>
+            <directory suffix="MatrixException.php">../src/Chippyash/Matrix/Exceptions</directory>
             <!-- don't cover interfaces- nothing to test! -->
-            <directory>../src/chippyash/Matrix/Interfaces</directory>
+            <directory>../src/Chippyash/Matrix/Interfaces</directory>
         </blacklist>
     </filter>
 

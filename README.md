@@ -56,7 +56,7 @@ In PHP terms a matrix is an array of arrays, 2 dimensional i.e
 A shortcut for a single item matrix is to supply a single array
 
 <pre>
-    use chippyash/Matrix/Matrix;
+    use Chippyash/Matrix/Matrix;
 
     $mA = new Matrix([]);  //empty matrix
     $mA = new Matrix([[]]);  //empty matrix
@@ -101,7 +101,7 @@ This allows for arithmetic stability.
 #### Matrices have attributes
 
 *  Attributes always return a boolean.
-*  Attributes implement the chippyash\Matrix\Interfaces\AttributeInterface
+*  Attributes implement the Chippyash\Matrix\Interfaces\AttributeInterface
 *  You can use the is() method of a Matrix to test for an attribute
 <pre>
     if ($mA->is('square')) {}
@@ -126,7 +126,7 @@ Attributes supported:
 *  Transformation always returns a Matrix
 *  The original matrix is untouched
 *  You can use the magic __invoke functionality
-*  Transformations implement the chippyash\Matrix\Interfaces\TransformationInterface
+*  Transformations implement the Chippyash\Matrix\Interfaces\TransformationInterface
 
 <pre>
     $mB = $mA("Transpose");
@@ -180,14 +180,14 @@ You can supply a formatter to create output via the display() method. The librar
 currently has an Ascii formatter.  To use it
 
 <pre>
-    use chippyash\Matrix\Formatter\Ascii;
-    use chippyash\Matrix\Matrix;
+    use Chippyash\Matrix\Formatter\Ascii;
+    use Chippyash\Matrix\Matrix;
 
     $mA = new Matrix([[1,2,3],['a','b','c'],[true, false, 'foo']]);
     echo $mA->setFormatter(new Asciii())->display();
 </pre>
 
-*  Formatters implement the chippyash\Matrix\Interfaces\FormatterInterface
+*  Formatters implement the Chippyash\Matrix\Interfaces\FormatterInterface
 *  The Matrix::display() method accepts an optional array of options that are passed to the formatter
 *  Formatters are not limited to string output. You could for instance, write a formatter to output an SVG file
 
@@ -225,7 +225,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/matrix": ">=1.2.7"
+    "chippyash/matrix": "~2"
 </pre>
 
 to your composer.json "requires" section
@@ -285,3 +285,4 @@ V1.2.7 Add ability to set the formatter options for debug
 
 V1.2.8 update phpunit to ~V4.3.0
 
+V2.0.0 BC Break: change chippyash\Matrix namespace to Chippyash\Matrix
