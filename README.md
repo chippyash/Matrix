@@ -8,6 +8,12 @@ Certified for PHP 5.4 - 5.6
 [![Test Coverage](https://codeclimate.com/github/chippyash/Matrix/badges/coverage.svg)](https://codeclimate.com/github/chippyash/Matrix/coverage)
 [![Code Climate](https://codeclimate.com/github/chippyash/Matrix/badges/gpa.svg)](https://codeclimate.com/github/chippyash/Matrix)
 
+The above badges represent the current development branch.  As a rule, I don't push
+ to GitHub unless tests, coverage and usability are acceptable.  This may not be
+ true for short periods of time; on holiday, need code for some other downstream
+ project etc.  If you need stable code, use a tagged version. Read 'Further Documentation'
+ and 'Installation'.
+ 
 [Test Contract](https://github.com/chippyash/matrix/blob/master/docs/Test-Contract.md) in the docs directory.
 
 ## What?
@@ -250,6 +256,16 @@ To run the tests:
     cd Matrix
     vendor/bin/phpunit -c test/phpunit.xml test/
 </pre>
+
+## License
+
+This software library is released under the [GNU GPL V3 or later license](http://www.gnu.org/copyleft/gpl.html)
+
+This software library is Copyright (c) 2014-2016, Ashley Kitson, UK
+
+A commercial license is available for this software library, please contact the author. 
+It is normally free to deserving causes, but gets you around the limitation of the GPL
+license, which does not allow unrestricted inclusion of this code in commercial works.
 
 ## History
 
