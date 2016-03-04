@@ -291,3 +291,5 @@ V1.2.7 Add ability to set the formatter options for debug
 V1.2.8 update phpunit to ~V4.3.0
 
 V2.0.0 BC Break: change chippyash\Matrix namespace to Chippyash\Matrix
+
+V2.0.1 remove duplicated tests
