@@ -54,6 +54,8 @@ rational and complex type support
 
 Check out [chippyash/Math-Type-Calculator](https://github.com/chippyash/Math-Type-Calculator) for arithmetic operations on aforementioned strong types
 
+Check out [ZF4 Packages](http://zf4.biz/packages?utm_source=github&utm_medium=web&utm_campaign=blinks&utm_content=matrix) for more packages
+
 ## How
 
 ### Coding Basics
@@ -308,3 +310,5 @@ V1.2.8 update phpunit to ~V4.3.0
 V2.0.0 BC Break: change chippyash\Matrix namespace to Chippyash\Matrix
 
 V2.0.1 remove duplicated tests
+
+V2.0.2 Add link to packages
