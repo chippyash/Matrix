@@ -24,9 +24,6 @@ class AssertParameterIsMatrixTest extends \PHPUnit_Framework_TestCase
         $this->object = new stubTraitAssertParameterIsMatrix();
     }
 
-    /**
-     * @covers Chippyash\Matrix\Traits\AssertParameterIsMatrix::assertParameterIsMatrix
-     */
     public function testMatrixParamReturnsClass()
     {
         $this->assertInstanceOf(
@@ -37,7 +34,6 @@ class AssertParameterIsMatrixTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException Chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage Parameter is not a matrix
-     * @covers Chippyash\Matrix\Traits\AssertParameterIsMatrix::assertParameterIsMatrix
      */
     public function testNotMatrixParamThrowsException()
     {
@@ -47,7 +43,6 @@ class AssertParameterIsMatrixTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException Chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage foo
-     * @covers Chippyash\Matrix\Traits\AssertParameterIsMatrix::assertParameterIsMatrix
      */
     public function testNotMatrixParamThrowsExceptionWithUserMessage()
     {

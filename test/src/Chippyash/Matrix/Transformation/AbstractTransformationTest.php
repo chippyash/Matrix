@@ -46,9 +46,6 @@ class AbstractTransformationTest extends \PHPUnit_Framework_TestCase
         $f(new Matrix(array()),'bar');
     }
 
-    /**
-     * @covers Chippyash\Matrix\Transformation\AbstractTransformation::__invoke
-     */
     public function testInvokeProxiesToCompute()
     {
         $this->object->expects($this->any())

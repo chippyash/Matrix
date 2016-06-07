@@ -29,9 +29,6 @@ class AssertMatrixIsCompleteTest extends \PHPUnit_Framework_TestCase
         $this->mB = new Matrix([[1,2,3],[4,5],[7]]);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Traits\AssertMatrixIsComplete::assertMatrixIsComplete
-     */
     public function testCompleteMatrixReturnsClass()
     {
         $this->assertInstanceOf(
@@ -42,7 +39,6 @@ class AssertMatrixIsCompleteTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException Chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage Matrix is not complete in row 2
-     * @covers Chippyash\Matrix\Traits\AssertMatrixIsComplete::assertMatrixIsComplete
      */
     public function testIncompleteMatrixThrowsException()
     {

@@ -29,9 +29,6 @@ class AssertMatrixIsNotEmptyTest extends \PHPUnit_Framework_TestCase
         $this->mB = new Matrix([]);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Traits\AssertMatrixIsNotEmpty::assertMatrixIsNotEmpty
-     */
     public function testNotEmptyMatrixReturnsClass()
     {
         $this->assertInstanceOf(
@@ -42,7 +39,6 @@ class AssertMatrixIsNotEmptyTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException Chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage Matrix parameter is empty
-     * @covers Chippyash\Matrix\Traits\AssertMatrixIsNotEmpty::assertMatrixIsNotEmpty
      */
     public function testEmptyMatrixThrowsException()
     {
@@ -52,7 +48,6 @@ class AssertMatrixIsNotEmptyTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException Chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage foo
-     * @covers Chippyash\Matrix\Traits\AssertMatrixIsNotEmpty::assertMatrixIsNotEmpty
      */
     public function testEmptyMatrixThrowsExceptionWithUserMessage()
     {

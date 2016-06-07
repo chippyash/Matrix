@@ -97,9 +97,6 @@ class RowreduceTest extends \PHPUnit_Framework_TestCase
         $this->object->transform($m, array(1));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Transformation\Rowreduce::transform()
-     */
     public function testEmptyMatrixReturnsEmptyMatrix()
     {
         $mA = new Matrix(array());
@@ -107,9 +104,6 @@ class RowreduceTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($test->is('Empty'));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Transformation\Rowreduce::transform()
-     */
     public function testTransformReturnsCorrectResult()
     {
         $mA = new Matrix($this->testArray);

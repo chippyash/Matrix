@@ -27,10 +27,6 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         $this->object = new stubTraitDebug();
     }
 
-    /**
-     * @covers Chippyash\Matrix\Traits\Debug::debug
-     * @covers Chippyash\Matrix\Traits\Debug::setDebug
-     */
     public function testArrayParamReturnsStringWithDebugSwitchedOn()
     {
         $test = "/foo\+.*\+/";
@@ -41,10 +37,6 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         $this->assertRegExp($test, $res);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Traits\Debug::debug
-     * @covers Chippyash\Matrix\Traits\Debug::setDebug
-     */
     public function testMatrixParamReturnsStringWithDebugSwitchedOn()
     {
         $test = "/foo\+.*\+/";

@@ -17,9 +17,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
      */
     protected $object;
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::__construct()
-     */
     public function testConstructEmptyArrayGivesEmptyMatrix()
     {
         $this->object = new Matrix(array());
@@ -27,9 +24,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->object->is('empty'));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::__construct()
-     */
     public function testConstructNonEmptyArrayGivesNonEmptyMatrix()
     {
         $this->object = new Matrix(array(2));
@@ -37,9 +31,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->object->is('empty'));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::__construct()
-     */
     public function testConstructSingleItemArrayGivesSingleItemMatrix()
     {
         $test = array(1);
@@ -50,8 +41,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::__construct()
-     * @covers Chippyash\Matrix\Matrix::enforceCompleteness()
      * @dataProvider completeArrays
      */
     public function testConstructEnforcingCompletenessWithGoodArraysGivesMatrix($testArray)
@@ -77,8 +66,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::__construct()
-     * @covers Chippyash\Matrix\Matrix::enforceCompleteness()
      * @dataProvider nonCompleteArrays
      */
     public function testConstructEnforcingCompletenessWithNonCompleteArraysRaisesException($testArray, $invalidRow)
@@ -103,7 +90,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::__construct()
      * @dataProvider nonCompleteArraysForNormalization
      */
     public function testConstructForcingNormalizationNoCompletenessGivesNormalizedMatrix($testArray, $expectedArray)
@@ -138,7 +124,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::__construct()
      * @dataProvider incompleteArrays
      */
     public function testConstructNotForcingNormalizationNoCompletenessFailsCompleteTest($testArray)
@@ -162,8 +147,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::__construct()
-     * @covers Chippyash\Matrix\Matrix::toArray()
      * @dataProvider nonCompleteArraysForNormalizationWithUserData
      */
     public function testConstructForcingNormalizationWithUserDataNotCompleteGivesNormalizedMatrix($testArray, $expectedArray)
@@ -188,9 +171,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::rows()
-     * @covers Chippyash\Matrix\Matrix::columns()
-     * @covers Chippyash\Matrix\Matrix::vertices()
      * @dataProvider matrixDimensions
      */
     public function testConstructNonCompleteMatrixWithVariousArraysGivesCorrectDimensions($array, $columns, $rows, $vertices)
@@ -266,9 +246,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $this->object->get(1, 4);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::get()
-     */
     public function testMatrixGetErrorsIfVerticeNotFound()
     {
         $this->object = new Matrix(array(array(1, 2, 3), array(), array()));
@@ -281,9 +258,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::get()
-     */
     public function testMatrixGetReturnsCorrectValue()
     {
         $testArray = array(array(1, 2, 3), array(0, 2, 1), array(2.5, 1, 3));
@@ -296,7 +270,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::display()
      * @expectedException Chippyash\Matrix\Exceptions\FormatterNotSetException
      * @expectedExceptionMessage Formatter not set
      */
@@ -306,10 +279,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $mA->display();
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::display()
-     * @covers Chippyash\Matrix\Matrix::setFormatter()
-     */
     public function testDisplayReturnsOutputIfFormatterSet()
     {
         $mA = new Matrix(array());
@@ -321,10 +290,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $mA->display());
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::display()
-     * @covers Chippyash\Matrix\Matrix::setFormatter()
-     */
     public function testDisplayAcceptsOptionsArray()
     {
         $mA = new Matrix(array());
@@ -336,42 +301,32 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $mA->display(array()));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::display()
-     * @covers Chippyash\Matrix\Matrix::setFormatter()
-     * @expectedException \PHPUnit_Framework_Error
-     */
     public function testDisplayRequiresOptionsToBeArray()
     {
-        $mA = new Matrix(array());
-        $formatter = $this->getMock("\Chippyash\Matrix\Interfaces\FormatterInterface");
-        $mA->setFormatter($formatter);
-        $this->assertEquals('foo', $mA->display('foo'));
+        if (PHP_MAJOR_VERSION < 7) {
+            $this->setExpectedException('PHPUnit_Framework_Error');
+            $mA = new Matrix(array());
+            $formatter = $this->getMock("\Chippyash\Matrix\Interfaces\FormatterInterface");
+            $mA->setFormatter($formatter);
+            $this->assertEquals('foo', $mA->display('foo'));
+        } else {
+            $this->markTestSkipped('Test incompatible with PHP 7');
+        }
+        
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::is()
-     * @covers Chippyash\Matrix\Matrix::test()
-     */
     public function testIsMethodAcceptsKnownAttributeName()
     {
         $mA = new Matrix(array());
         $this->assertInternalType('boolean', $mA->is('empty'));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::is()
-     */
     public function testIsMethodReturnsFalseForUnknownAttributeName()
     {
         $mA = new Matrix(array());
         $this->assertFalse($mA->is('foobar'));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::is()
-     * @covers Chippyash\Matrix\Matrix::test()
-     */
     public function testIsMethodAcceptsAttributeInterfaceAsParameter()
     {
         $mA = new Matrix(array());
@@ -383,7 +338,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::test()
      * @expectedException Chippyash\Matrix\Exceptions\NotAnAttributeInterfaceException
      */
     public function testTestMethodThrowsExceptionIfAttributeIsNotInterface()
@@ -393,7 +347,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::test()
      * @expectedException BadMethodCallException
      */
     public function testTestMethodThrowsExceptionIfParamAsClassCannotBeFound()
@@ -402,13 +355,15 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $mA->test('foobar');
     }
 
-    /**
-     * @expectedException PHPUnit_Framework_Error
-     */
     public function testTransformRequiresTransformationInterface()
     {
-        $mA = new Matrix([]);
-        $mA->transform();
+        if (PHP_MAJOR_VERSION < 7) {
+            $this->setExpectedException('PHPUnit_Framework_Error');
+            $mA = new Matrix([]);
+            $mA->transform();    
+        }  else {
+            $this->markTestSkipped('Test incompatible with PHP 7');
+        }
     }
 
     public function testTransformWithTransformationInterfaceThrowsNoException()
@@ -423,7 +378,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Matrix::__invoke()
      * @expectedException \InvalidArgumentException
      */
     public function testInvokeWithBadComputationNameThrowsException()
@@ -432,10 +386,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $mA('foobar');
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::__invoke()
-     * @covers Chippyash\Matrix\Matrix::transform()
-     */
     public function testInvokeWithOneParamProxiesToTransform()
     {
         $testArray = array(array(1, 2), array(3, 4));
@@ -444,10 +394,6 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedArray, $object("Transpose")->toArray());
     }
 
-    /**
-     * @covers Chippyash\Matrix\Matrix::__invoke()
-     * @covers Chippyash\Matrix\Matrix::transform()
-     */
     public function testInvokeWithTwoParamsProxiesToTransform()
     {
         $testArray = array(array(1, 2), array(3, 4));

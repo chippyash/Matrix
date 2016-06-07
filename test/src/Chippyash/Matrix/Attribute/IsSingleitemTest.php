@@ -21,45 +21,30 @@ class IsSingleitemTest extends \PHPUnit_Framework_TestCase
                 $this->object);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsSingleitem::is()
-     */
     public function testEmptyMatrixReturnsFalse()
     {
         $mA = new Matrix(array());
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsSingleitem::is()
-     */
     public function testRowVectorMatrixReturnsFalse()
     {
         $mA = new Matrix(array(array(1,2,3)));
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsSingleitem::is()
-     */
     public function testColumnVectorMatrixReturnsFalse()
     {
         $mA = new Matrix(array(array(1),array(2),array(3)));
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsSingleitem::is()
-     */
     public function testSquareMatrixGreaterThanOneVerticeMatrixReturnsFalse()
     {
         $mA = new Matrix(array(1,2),array(1,2));
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsSingleitem::is()
-     */
     public function testSingleItemMatrixReturnsTrue()
     {
         $mA = new Matrix(array(1));

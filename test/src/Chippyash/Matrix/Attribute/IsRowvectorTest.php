@@ -21,36 +21,24 @@ class IsRowvectorTest extends \PHPUnit_Framework_TestCase
                 $this->object);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsRowvector::is()
-     */
     public function testEmptyMatrixIsNotARowVector()
     {
         $mA = new Matrix(array());
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsRowvector::is()
-     */
     public function testSingleItemMatrixIsNotARowVector()
     {
         $mA = new Matrix(array(1));
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsRowvector::is()
-     */
     public function testColumnVectorMatrixIsNotARowVector()
     {
         $mA = new Matrix(array(array(1),array(2),array(3)));
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsRowvector::is()
-     */
     public function testRowVectorMatrixIsARowVector()
     {
         $mA = new Matrix(array(array(1,2,3)));

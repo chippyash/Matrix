@@ -22,7 +22,6 @@ class IsCompleteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Attribute\IsComplete::is()
      * @dataProvider completeArrays
      */
     public function testCompleteMatricesReturnTrue($arr)
@@ -48,7 +47,6 @@ class IsCompleteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Chippyash\Matrix\Attribute\IsComplete::is()
      * @dataProvider nonCompleteArrays
      */
     public function testIncompleteMatricesReturnFalse($arr)
@@ -71,9 +69,6 @@ class IsCompleteTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsComplete::is()
-     */
     public function testMatricesWithMissingRowsReturnFalse()
     {
         $arr = [[1],[2],[3]];

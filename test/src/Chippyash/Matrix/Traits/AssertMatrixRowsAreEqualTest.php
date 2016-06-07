@@ -29,9 +29,6 @@ class AssertMatrixRowsAreEqualTest extends \PHPUnit_Framework_TestCase
         $this->mB = new Matrix([[1,2,3],[4,5,6]]);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Traits\AssertMatrixRowsAreEqual::assertMatrixRowsAreEqual
-     */
     public function testEqualRowsReturnsClass()
     {
         $this->assertInstanceOf(
@@ -42,7 +39,6 @@ class AssertMatrixRowsAreEqualTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException Chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage mA->rows != mB->rows
-     * @covers Chippyash\Matrix\Traits\AssertMatrixRowsAreEqual::assertMatrixRowsAreEqual
      */
     public function testUnequalRowsThrowsException()
     {
@@ -52,7 +48,6 @@ class AssertMatrixRowsAreEqualTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException Chippyash\Matrix\Exceptions\MatrixException
      * @expectedExceptionMessage foo
-     * @covers Chippyash\Matrix\Traits\AssertMatrixRowsAreEqual::assertMatrixRowsAreEqual
      */
     public function testUnequalRowsThrowsExceptionWithUserMessage()
     {

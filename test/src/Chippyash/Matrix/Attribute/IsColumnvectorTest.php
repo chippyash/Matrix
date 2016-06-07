@@ -21,33 +21,24 @@ class IsColumnvectorTest extends \PHPUnit_Framework_TestCase
                 $this->object);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsColumnvector::is()
-     */
     public function testEmptyMatrixIsNotAColumnVector()
     {
         $mA = new Matrix(array());
         $this->assertFalse($this->object->is($mA));
     }
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsColumnvector::is()
-     */
+
     public function testSingleItemMatrixIsNotAColumnVector()
     {
         $mA = new Matrix(array(1));
         $this->assertFalse($this->object->is($mA));
     }
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsColumnvector::is()
-     */
+
     public function testRowVectorMatrixIsNotAColumnVector()
     {
         $mA = new Matrix(array(array(1,2,3)));
         $this->assertFalse($this->object->is($mA));
     }
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsColumnvector::is()
-     */
+
     public function testColumnVectorMatrixIsAColumnVector()
     {
         $mA = new Matrix(array(array(1),array(2),array(3)));

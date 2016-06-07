@@ -21,9 +21,6 @@ class IsDiagonalTest extends \PHPUnit_Framework_TestCase
                 $this->object);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsDiagonal::is()
-     */
     public function testNonCompleteDiagonalMatrixReturnsFalse()
     {
         $testBad = array(array(1,0,0), array(0,0), array(0));
@@ -31,9 +28,6 @@ class IsDiagonalTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsDiagonal::is()
-     */
     public function testNonSquareMatrixReturnsFalse()
     {
         $testBad = array(array(1,0,2));
@@ -41,9 +35,6 @@ class IsDiagonalTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsDiagonal::is()
-     */
     public function testDiagonalMatrixReturnsTrue()
     {
         $testGood = array(array(1,0,0),array(0,1,0),array(0,0,1));
@@ -51,9 +42,6 @@ class IsDiagonalTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsDiagonal::is()
-     */
     public function testNonDiagonalMatrixReturnsFalse()
     {
         $testBad = array(array(0,0,0),array(0,1,0),array(0,0,1));

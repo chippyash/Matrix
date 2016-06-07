@@ -21,18 +21,12 @@ class IsEmptyTest extends \PHPUnit_Framework_TestCase
                 $this->object);
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsEmpty::is()
-     */
     public function testEmptyMatrixReturnsTrue()
     {
         $mA = new Matrix([]);
         $this->assertTrue($this->object->is($mA));
     }
 
-    /**
-     * @covers Chippyash\Matrix\Attribute\IsEmpty::is()
-     */
     public function testNonEmptyMatrixReturnsFalse()
     {
         $mA = new Matrix([1]);

@@ -27,7 +27,11 @@ class VectorSetTest extends \PHPUnit_Framework_TestCase
      */
     public function testFromMatrixWithNonMatrixWillThrowException()
     {
-        $this->object->fromMatrix('foo');
+        if (PHP_MAJOR_VERSION < 7) {
+            $this->object->fromMatrix('foo');
+        }  else {
+            $this->markTestSkipped('Test incompatible with PHP 7');
+        }
     }
 
     public function testFromMatrixWithNonMatrixWillReturnVector2d()
