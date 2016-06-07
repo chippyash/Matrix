@@ -7,7 +7,8 @@ engines:
     enabled: true
     checks:
       Identical code:
-        enabled: false    config:
+        enabled: false
+  config:
     languages:
     - php
   fixme:
