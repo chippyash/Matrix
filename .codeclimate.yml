@@ -8,9 +8,9 @@ engines:
     checks:
       Identical code:
         enabled: false
-  config:
-    languages:
-    - php
+    config:
+      languages:
+      - php
   fixme:
     enabled: true
   phpmd:
