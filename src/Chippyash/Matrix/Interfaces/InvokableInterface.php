@@ -24,7 +24,7 @@ interface InvokableInterface
     /**
      * proxy to some other method
      *
-     * @param mixed implementation specific
+     * @param mixed
      * @codeCoverageIgnore
      */
     public function __invoke();

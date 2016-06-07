@@ -23,6 +23,9 @@ abstract class AbstractTransformation implements TransformationInterface
     /**
      * @see TransformationInterface::transform
      * @abstract
+     * @param Matrix $mA
+     * @param null $extra
+     * @return Matrix
      */
     public function transform(Matrix $mA, $extra = null)
     {
@@ -32,13 +35,14 @@ abstract class AbstractTransformation implements TransformationInterface
     /**
      * Proxy to transform()
      * Allows object to be called as function
+     * 
+     * @return float|integer
+     * 
+     * @throws TransformationException
+     * 
+     * @internal param Matrix $mA
+     * @internal param mixed $extra Additional input required for transformation
      *
-     * @param Matrix $mA
-     * @param mixed $extra Additional input required for transformation
-     *
-     * @return numeric
-     *
-     * @throws Chippyash/Matrix/Exceptions/MatrixException
      */
     public function __invoke()
     {
@@ -56,9 +60,10 @@ abstract class AbstractTransformation implements TransformationInterface
      * Required so that upstream matrices can use the transformations and be returned
      * in a matrix type they understand
      *
-     * @param \Chippyash\Matrix\Matrix $original
-     * @param \Chippyash\Matrix\Matrix $result
-     * @return \Chippyash\Matrix\Matrix
+     * @param Matrix $original
+     * @param Matrix $result
+     * 
+     * @return Matrix
      */
     protected function returnOriginalMatrixType(Matrix $original, Matrix $result)
     {
@@ -72,6 +77,10 @@ abstract class AbstractTransformation implements TransformationInterface
 
     /**
      * Do the actual transformation
+     * 
+     * @param Matrix $mA
+     * @param null $extra
+     * 
      */
     abstract protected function doTransform(Matrix $mA, $extra = null);
 }

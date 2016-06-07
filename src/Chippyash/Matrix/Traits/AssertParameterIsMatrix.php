@@ -20,12 +20,12 @@ Trait AssertParameterIsMatrix
     /**
      * Run test to ensure parameter is a Matrix
      *
-     * @param mixed $value
+     * @param $param
      * @param string $msg Optional message
-     *
-     * @return Fluent Interface
+     * @return $this
      *
      * @throws MatrixException
+     * @internal param mixed $value
      */
     protected function assertParameterIsMatrix($param, $msg = 'Parameter is not a matrix')
     {

@@ -20,12 +20,12 @@ class Vector2D
 
     /**
      * X coord
-     * @var numeric
+     * @var float|integer
      */
     protected $x;
     /**
      * Y coord
-     * @var numeric
+     * @var float|integer
      */
     protected $y;
 
@@ -38,8 +38,8 @@ class Vector2D
     /**
      * Construct a vector
      *
-     * @param numeric $x - corresponds to matrix columns
-     * @param numeric $y - corresponds to matrix rows
+     * @param float|int $x - corresponds to matrix columns
+     * @param float|int $y - corresponds to matrix rows
      * @param mixed $value - value of vector
      *
      * @throws VectorException
@@ -71,7 +71,7 @@ class Vector2D
 
     /**
      * Return X coord
-     * @return numeric
+     * @return float|integer
      */
     public function getX()
     {
@@ -80,7 +80,7 @@ class Vector2D
 
     /**
      * Return Y coord
-     * @return numeric
+     * @return float|integer
      */
     public function getY()
     {
@@ -102,7 +102,7 @@ class Vector2D
      *
      * @param \callable $f
      * @throws VectorException
-     * @returns \Chippyash\Matrix\Vector Fluent Interface
+     * @returns $this
      */
     public function translate(callable $f)
     {

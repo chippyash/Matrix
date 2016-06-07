@@ -21,7 +21,7 @@ Trait AssertMatrixIsSquare
      *
      * @param \Chippyash\Matrix\Matrix $matrix
      * @param string $msg Optional message
-     * @return Fluent Interface
+     * @return $this
      *
      * @throws MatrixException
      */

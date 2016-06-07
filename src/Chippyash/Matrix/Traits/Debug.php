@@ -52,7 +52,7 @@ Trait Debug
      * @param \Chippyash\Matrix\Interfaces\FormatterInterface $formatter
      * @param array $options options to be passed to formatter via matrix->display()
      *
-     * @return mixed Fluent Interface
+     * @return mixed $this
      */
     public function setFormatter(FormatterInterface $formatter, array $options = [])
     {

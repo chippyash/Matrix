@@ -75,6 +75,9 @@ class Ascii implements FormatterInterface
     {
         //get largest value length as a string
         $padLen = 0;
+        /** @noinspection PhpUnusedParameterInspection */
+        /** @noinspection PhpDocSignatureInspection */
+        /** @noinspection PhpDocSignatureInspection */
         $fGetLen = function($row, $col, $value) use(&$padLen) {
             if (is_bool($value)) {
                 $value = ($value ? 1 : 0);
@@ -91,6 +94,9 @@ class Ascii implements FormatterInterface
         $padLen += $this->options['padLine'];
         $padString = $this->options['padString'];
         $padType = $this->options['padType'];
+        /** @noinspection PhpUnusedParameterInspection */
+        /** @noinspection PhpDocSignatureInspection */
+        /** @noinspection PhpDocSignatureInspection */
         $fConvert = function($row, $col, $value) use ($padLen, $padString, $padType) {
             if (is_bool($value)) {
                 $value = ($value ? 1 : 0);

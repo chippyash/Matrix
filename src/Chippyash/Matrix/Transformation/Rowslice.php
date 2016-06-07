@@ -9,7 +9,6 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\AbstractTransformation;
 use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Exceptions\MatrixException;
 use Chippyash\Matrix\Traits\AssertParameterIsArray;
@@ -31,7 +30,7 @@ class Rowslice extends AbstractTransformation
      *
      * @return Matrix
      *
-     * @throws Chippyash/Matrix/Exceptions/MatrixException
+     * @throws MatrixException
      */
     protected function doTransform(Matrix $mA, $extra = null)
     {
@@ -39,6 +38,7 @@ class Rowslice extends AbstractTransformation
             return new Matrix(array());
         }
 
+        /** @noinspection PhpInternalEntityUsedInspection */
         $this->assertParameterIsArray($extra, 'Second operand is not an array');
 
         if (empty($extra)) {

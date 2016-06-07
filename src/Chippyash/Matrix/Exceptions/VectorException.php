@@ -9,8 +9,6 @@
 
 namespace Chippyash\Matrix\Exceptions;
 
-use Chippyash\Matrix\Exceptions\MatrixException;
-
 /**
  * Base Vector exception
  */

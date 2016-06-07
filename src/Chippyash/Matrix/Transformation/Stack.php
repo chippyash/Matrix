@@ -9,7 +9,6 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\AbstractTransformation;
 use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Traits\AssertMatrixIsComplete;
 use Chippyash\Matrix\Traits\AssertParameterIsMatrix;
@@ -40,6 +39,7 @@ class Stack extends AbstractTransformation
      */
     protected function doTransform(Matrix $mA, $extra = null)
     {
+        /** @noinspection PhpInternalEntityUsedInspection */
         $this->assertParameterIsMatrix($extra)
              ->assertMatrixColumnsAreEqual($mA, $extra)
              ->assertMatrixIsComplete($mA)

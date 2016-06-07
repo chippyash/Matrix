@@ -9,7 +9,6 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\AbstractTransformation;
 use Chippyash\Matrix\Exceptions\TransformationException;
 use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Traits\AssertMatrixIsComplete;

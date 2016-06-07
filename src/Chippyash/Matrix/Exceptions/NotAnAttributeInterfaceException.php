@@ -9,8 +9,6 @@
 
 namespace Chippyash\Matrix\Exceptions;
 
-use Chippyash\Matrix\Exceptions\MatrixException;
-
 /**
  * Invalid attribute interface
  */

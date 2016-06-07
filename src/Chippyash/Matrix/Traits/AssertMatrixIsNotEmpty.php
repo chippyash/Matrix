@@ -22,7 +22,7 @@ Trait AssertMatrixIsNotEmpty
      * @param \Chippyash\Matrix\Matrix $matrix
      * @param string $msg optional error message`
      *
-     * @return Fluent Interface
+     * @return $this
      *
      * @throws MatrixException
      */

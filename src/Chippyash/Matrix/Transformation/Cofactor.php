@@ -9,9 +9,6 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\AbstractTransformation;
-use Chippyash\Matrix\Transformation\Rowreduce;
-use Chippyash\Matrix\Transformation\Colreduce;
 use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Exceptions\MatrixException;
 use Chippyash\Matrix\Traits\AssertParameterIsArray;
@@ -31,14 +28,14 @@ class Cofactor extends AbstractTransformation
      *
      * @return Matrix
      *
-     * @throws Chippyash/Matrix/Exceptions/MatrixException
-     * @throws Chippyash/Matrix/Exceptions/UndefinedMatrixException
+     * @throws MatrixException
      */
     protected function doTransform(Matrix $mA, $extra = null)
     {
         if ($mA->is('empty')) {
             return new Matrix([]);
         }
+        /** @noinspection PhpInternalEntityUsedInspection */
         $this->assertParameterIsArray($extra, 'Second operand is not an array');
 
         if (count($extra) != 2) {

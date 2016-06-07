@@ -10,7 +10,6 @@
 namespace Chippyash\Matrix\Vector;
 
 use Chippyash\Matrix\Matrix;
-use Chippyash\Matrix\Vector\Vector2D;
 use Chippyash\Matrix\Exceptions\VectorException;
 use Zend\Stdlib\ArrayObject as ZArrayObject;
 
@@ -21,7 +20,7 @@ class VectorSet extends ZArrayObject
 {
 
     /**
-     * Overide ancestor to dissallow setting up of set from construction
+     * Overide ancestor to disallow setting up of set from construction
      */
     public function __construct(){
         parent::__construct();
@@ -31,7 +30,7 @@ class VectorSet extends ZArrayObject
      * Add vector set entries from a Matrix
      *
      * @param \Chippyash\Matrix\Matrix $mA
-     * @return \Chippyash\Matrix\Vector\VectorSet Fluent Interface
+     * @return \Chippyash\Matrix\Vector\VectorSet $this
      */
     public function fromMatrix(Matrix $mA)
     {
@@ -72,7 +71,7 @@ class VectorSet extends ZArrayObject
      * @see VectorSet::translate
      *
      * @param \callable $f
-     * @return \Chippyash\Matrix\Vector\VectorSet Fluent Interface
+     * @return \Chippyash\Matrix\Vector\VectorSet $this
      */
     public function translate(callable $f)
     {
@@ -87,7 +86,7 @@ class VectorSet extends ZArrayObject
      * Only allow Vector2D objects to be appended
      *
      * @param \Chippyash\Matrix\Vector\Vector2D $value
-     * @return \Chippyash\Matrix\Vector\VectorSet Fluent Interface
+     * @return \Chippyash\Matrix\Vector\VectorSet $this
      * @throws \Chippyash\Matrix\Exceptions\VectorException
      */
     public function append($value)

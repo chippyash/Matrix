@@ -10,8 +10,6 @@
 
 namespace Chippyash\Matrix\Exceptions;
 
-use Chippyash\Matrix\Exceptions\MatrixException;
-
 /**
  * Thrown if matrix is not complete
  */

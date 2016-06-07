@@ -9,8 +9,6 @@
 
 namespace Chippyash\Matrix\Exceptions;
 
-use Chippyash\Matrix\Exceptions\MatrixException;
-
 /**
  * Thrown if a vertice is out of bounds for the matrix
  */

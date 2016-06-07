@@ -9,9 +9,9 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\AbstractTransformation;
 use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Traits\AssertMatrixIsComplete;
+use Chippyash\Matrix\Exceptions\MatrixException;
 
 /**
  * Transpose a matrix
@@ -29,7 +29,7 @@ class Transpose extends AbstractTransformation
      *
      * @return Matrix
      *
-     * @throws Chippyash/Matrix/Exceptions/MatrixException
+     * @throws MatrixException
      */
     protected function doTransform(Matrix $mA, $extra = null)
     {
@@ -39,7 +39,7 @@ class Transpose extends AbstractTransformation
             return new Matrix(array());
         }
         $transposed = array();
-        $data = $mA->toArray(false);
+        $data = $mA->toArray();
         foreach ($data as $rowKey => $row) {
             if (is_array($row) && !empty($row)) { //check to see if there is a second dimension
                 foreach ($row as $columnKey => $element) {

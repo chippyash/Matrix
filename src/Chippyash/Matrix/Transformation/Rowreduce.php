@@ -9,7 +9,6 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\Rowslice;
 use Chippyash\Matrix\Matrix;
 
 /**

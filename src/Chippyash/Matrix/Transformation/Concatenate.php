@@ -9,7 +9,6 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\AbstractTransformation;
 use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Traits\AssertMatrixIsComplete;
 use Chippyash\Matrix\Traits\AssertParameterIsMatrix;
@@ -38,6 +37,7 @@ class Concatenate extends AbstractTransformation
      */
     protected function doTransform(Matrix $mA, $extra = null)
     {
+        /** @noinspection PhpInternalEntityUsedInspection */
         $this->assertParameterIsMatrix($extra)
              ->assertMatrixRowsAreEqual($mA, $extra)
              ->assertMatrixIsComplete($mA)

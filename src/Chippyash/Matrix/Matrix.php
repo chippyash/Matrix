@@ -71,7 +71,7 @@ class Matrix implements InvokableInterface
     protected $data = [[]];
 
     /**
-     * @var Chippyash\Matrix\Formatter\FormatterInterface
+     * @var FormatterInterface
      */
     protected $formatter;
 
@@ -287,13 +287,12 @@ class Matrix implements InvokableInterface
      * Invokable interface - allows object to be called as function
      * Proxies to transform e.g.
      * $matrix("Rowslice", array(1,2))
+     * 
+     * @return Matrix
+     * 
+     * @internal param string $operationName Name of operation to perform
+     * @internal param mixed $extra Additional parameter required by the operation
      *
-     * @param string $operationName Name of operation to perform
-     * @param mixed $extra Additional parameter required by the operation
-     *
-     * @return \Chippyash\Matrix\Matrix
-     *
-     * @throws \InvalidArgumentException
      */
     public function __invoke()
     {
@@ -321,8 +320,8 @@ class Matrix implements InvokableInterface
     /**
      * Set display formatter
      *
-     * @param \Chippyash\Matrix\Formatter\FormatterInterface $formatter
-     * @return \Chippyash\Matrix\Matrix Fluent Interface
+     * @param FormatterInterface $formatter
+     * @return Matrix $this
      */
     public function setFormatter(FormatterInterface $formatter)
     {
@@ -373,7 +372,7 @@ class Matrix implements InvokableInterface
      *
      * @return boolean
      *
-     * @throws Chippyash\Matrix\Exceptions\NotCompleteMatrixException
+     * @throws NotCompleteMatrixException
      */
     protected function enforceCompleteness()
     {

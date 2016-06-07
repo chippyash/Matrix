@@ -9,7 +9,6 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\AbstractTransformation;
 use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Exceptions\MatrixException;
 use Chippyash\Matrix\Traits\AssertMatrixIsComplete;
@@ -32,7 +31,7 @@ class MFunction extends AbstractTransformation
      *
      * @return Matrix
      *
-     * @throws Chippyash/Matrix/Exceptions/ComputationException
+     * @throws MatrixException
      */
     protected function doTransform(Matrix $mA, $extra = null)
     {

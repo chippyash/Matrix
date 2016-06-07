@@ -9,9 +9,10 @@
 
 namespace Chippyash\Matrix\Transformation;
 
-use Chippyash\Matrix\Transformation\AbstractTransformation;
 use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Traits\AssertMatrixIsComplete;
+use Chippyash\Matrix\Exceptions\MatrixException;
+
 /**
  * Reduce a matrix to its diagonal elements substituting non diagonal entries
  * with zero
@@ -31,7 +32,7 @@ class Diagonal extends AbstractTransformation
      *
      * @return Matrix
      *
-     * @throws Chippyash/Matrix/Exceptions/MatrixException
+     * @throws MatrixException
      */
     protected function doTransform(Matrix $mA, $extra = null)
     {
@@ -41,7 +42,7 @@ class Diagonal extends AbstractTransformation
             return new Matrix(array());
         }
         $diagonal = array();
-        $data = $mA->toArray(false);
+        $data = $mA->toArray();
         $size = $mA->rows();
         for ($row = 0; $row < $size; $row ++) {
             for ($col = 0; $col < $size; $col ++) {

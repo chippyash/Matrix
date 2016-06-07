@@ -11,7 +11,6 @@ namespace Chippyash\Matrix\Attribute;
 
 use Chippyash\Matrix\Interfaces\AttributeInterface;
 use Chippyash\Matrix\Matrix;
-use Chippyash\Matrix\Attribute\IsComplete;
 
 /**
  * Square attribute

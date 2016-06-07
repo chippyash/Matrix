@@ -17,12 +17,14 @@ use Chippyash\Matrix\Exceptions\MatrixException;
 Trait AssertMatrixRowsAreEqual
 {
     /**
-     * @param \Chippyash\Matrix\Matrix $matrix
+     * @param Matrix $mA
+     * @param Matrix $mB
      * @param string $msg Optional message
-     *
-     * @return Fluent Interface
+     * 
+     * @return $this
      *
      * @throws MatrixException
+     * @internal param Matrix $matrix
      */
     protected function assertMatrixRowsAreEqual(Matrix $mA, Matrix $mB, $msg = 'mA->rows != mB->rows')
     {

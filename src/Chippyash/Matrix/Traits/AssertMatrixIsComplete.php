@@ -22,7 +22,7 @@ Trait AssertMatrixIsComplete
      *
      * @param \Chippyash\Matrix\Matrix $matrix
      *
-     * @return Fluent Interface
+     * @return $this
      *
      * @throws NotCompleteMatrixException
      */

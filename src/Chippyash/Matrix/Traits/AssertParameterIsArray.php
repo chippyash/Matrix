@@ -18,12 +18,12 @@ Trait AssertParameterIsArray
     /**
      * Run test to ensure parameter is an array
      *
-     * @param mixed $value
+     * @param $param
      * @param string $msg Optional message
-     *
-     * @return Fluent Interface
+     * @return $this
      *
      * @throws MatrixException
+     * @internal param mixed $value
      */
     protected function assertParameterIsArray($param, $msg = 'Parameter is not an array')
     {

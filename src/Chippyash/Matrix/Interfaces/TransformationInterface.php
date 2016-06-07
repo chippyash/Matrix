@@ -9,7 +9,6 @@
 namespace Chippyash\Matrix\Interfaces;
 
 use Chippyash\Matrix\Matrix;
-use Chippyash\Matrix\Interfaces\InvokableInterface;
 
 /**
  * Interface for a Matrix transformation
