@@ -1,8 +1,6 @@
 # Chippyash Matrix
 
-## 
-      Chippyash\Test\Matrix\Attribute\IsColumnvector
-    
+## Chippyash\Test\Matrix\Attribute\IsColumnvector
 
 *  Sut has attribute interface
 *  Empty matrix is not a column vector
@@ -10,9 +8,7 @@
 *  Row vector matrix is not a column vector
 *  Column vector matrix is a column vector
 
-## 
-      Chippyash\Test\Matrix\Attribute\IsComplete
-    
+## Chippyash\Test\Matrix\Attribute\IsComplete
 
 *  Sut has attribute interface
 *  Complete matrices return true
@@ -21,9 +17,7 @@
 *  Can get row error number if matrix is in error
 *  Get err row returns null if matrix is complete
 
-## 
-      Chippyash\Test\Matrix\Attribute\IsDiagonal
-    
+## Chippyash\Test\Matrix\Attribute\IsDiagonal
 
 *  Sut has attribute interface
 *  Non complete diagonal matrix returns false
@@ -31,17 +25,13 @@
 *  Diagonal matrix returns true
 *  Non diagonal matrix returns false
 
-## 
-      Chippyash\Test\Matrix\Attribute\IsEmpty
-    
+## Chippyash\Test\Matrix\Attribute\IsEmpty
 
 *  Sut has attribute interface
 *  Empty matrix returns true
 *  Non empty matrix returns false
 
-## 
-      Chippyash\Test\Matrix\Attribute\IsRectangle
-    
+## Chippyash\Test\Matrix\Attribute\IsRectangle
 
 *  Sut has attribute interface
 *  Empty matrix is not a rectangle
@@ -52,9 +42,7 @@
 *  Wide rectangle matrix is a rectangle
 *  Long rectangle matrix is a rectangle
 
-## 
-      Chippyash\Test\Matrix\Attribute\IsRowvector
-    
+## Chippyash\Test\Matrix\Attribute\IsRowvector
 
 *  Sut has attribute interface
 *  Empty matrix is not a row vector
@@ -62,9 +50,7 @@
 *  Column vector matrix is not a row vector
 *  Row vector matrix is a row vector
 
-## 
-      Chippyash\Test\Matrix\Attribute\IsSingleitem
-    
+## Chippyash\Test\Matrix\Attribute\IsSingleitem
 
 *  Sut has attribute interface
 *  Empty matrix returns false
@@ -73,9 +59,7 @@
 *  Square matrix greater than one vertice matrix returns false
 *  Single item matrix returns true
 
-## 
-      Chippyash\Test\Matrix\Attribute\IsSquare
-    
+## Chippyash\Test\Matrix\Attribute\IsSquare
 
 *  Sut has attribute interface
 *  Empty matrix returns true
@@ -83,16 +67,12 @@
 *  Incomplete matrix returns false
 *  Square matrix returns true
 
-## 
-      Chippyash\Test\Matrix\Exceptions\Exceptions
-    
+## Chippyash\Test\Matrix\Exceptions\Exceptions
 
 *  Exceptions derived from matrix exception
 *  Matrix exception derived from exception
 
-## 
-      Chippyash\Test\Matrix\Formatter\Ascii
-    
+## Chippyash\Test\Matrix\Formatter\Ascii
 
 *  Construct gives formatter interface
 *  Format empty matrix returns empty box
@@ -103,9 +83,7 @@
 *  Format multi row matrix returns multi row box
 *  Booleans get converted
 
-## 
-      Chippyash\Test\Matrix\Matrix
-    
+## Chippyash\Test\Matrix\Matrix
 
 *  Construct empty array gives empty matrix
 *  Construct non empty array gives non empty matrix
@@ -145,64 +123,48 @@
 *  Equality with loose checking returns true if equality rules are matched
 *  Equality with loose checking returns false if equality rules are not matched
 
-## 
-      Chippyash\Test\Matrix\Traits\AssertMatrixColumnsAreEqual
-    
+## Chippyash\Test\Matrix\Traits\AssertMatrixColumnsAreEqual
 
 *  Equal columns returns class
 *  Unequal columns throws exception
 *  Unequal columns throws exception with user message
 
-## 
-      Chippyash\Test\Matrix\Traits\AssertMatrixIsComplete
-    
+## Chippyash\Test\Matrix\Traits\AssertMatrixIsComplete
 
 *  Complete matrix returns class
 *  Incomplete matrix throws exception
 
-## 
-      Chippyash\Test\Matrix\Traits\AssertMatrixIsNotEmpty
-    
+## Chippyash\Test\Matrix\Traits\AssertMatrixIsNotEmpty
 
 *  Not empty matrix returns class
 *  Empty matrix throws exception
 *  Empty matrix throws exception with user message
 
-## 
-      Chippyash\Test\Matrix\Traits\AssertMatrixIsSquare
-    
+## Chippyash\Test\Matrix\Traits\AssertMatrixIsSquare
 
 *  Square matrix returns class
 *  Non square matrix throws exception
 *  Non square matrix throws exception with user message
 
-## 
-      Chippyash\Test\Matrix\Traits\AssertMatrixRowsAreEqual
-    
+## Chippyash\Test\Matrix\Traits\AssertMatrixRowsAreEqual
 
 *  Equal rows returns class
 *  Unequal rows throws exception
 *  Unequal rows throws exception with user message
 
-## 
-      Chippyash\Test\Matrix\Traits\AssertParameterIsArray
-    
+## Chippyash\Test\Matrix\Traits\AssertParameterIsArray
 
 *  Array param returns class
 *  Not array param throws exception
 *  Not array param throws exception with user message
 
-## 
-      Chippyash\Test\Matrix\Traits\AssertParameterIsMatrix
-    
+## Chippyash\Test\Matrix\Traits\AssertParameterIsMatrix
 
 *  Matrix param returns class
 *  Not matrix param throws exception
 *  Not matrix param throws exception with user message
 
-## 
-      Chippyash\Test\Matrix\Traits\Debug
-    
+## Chippyash\Test\Matrix\Traits\Debug
 
 *  Array param returns string with debug switched on
 *  Matrix param returns string with debug switched on
@@ -210,9 +172,7 @@
 *  Set formatter returns object
 *  Debug with invalid param throws exception
 
-## 
-      Chippyash\Test\Matrix\Computation\AbstractTransformation
-    
+## Chippyash\Test\Matrix\Computation\AbstractTransformation
 
 *  Invoke expects at least one argument
 *  Invoke expects less than three arguments
@@ -220,9 +180,19 @@
 *  Invoke proxies to compute
 *  Descendent matrices are returned with correct class
 
-## 
-      Chippyash\Test\Matrix\Transformation\Cofactor
-    
+## Chippyash\Test\Matrix\Transformation\Circshift
+
+*  You can shift a single column to the right
+*  You can shift a multiple columns to the right
+*  You can shift a single column to the left
+*  You can shift a multiple columns to the left
+*  A null shift parameter will default to single right shift
+*  Shifting an empty matrix will return an empty matrix
+*  Shifting an single item matrix will return a clone of the matrix
+*  A zero shift parameter will return a clone of the shifted matrix
+*  Shifting a column vector will return a clone of the original vector
+
+## Chippyash\Test\Matrix\Transformation\Cofactor
 
 *  Empty matrix returns empty matrix
 *  Transform throws exception if second operand not an array
@@ -233,9 +203,7 @@
 *  Transform throws exception if col indicator greater than columns
 *  Transform returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\Colreduce
-    
+## Chippyash\Test\Matrix\Transformation\Colreduce
 
 *  Empty matrix returns empty matrix
 *  Transform throws exception if second operand not an array
@@ -248,9 +216,7 @@
 *  Transform throws exception if first operand is incomplete matrix
 *  Transform returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\Colslice
-    
+## Chippyash\Test\Matrix\Transformation\Colslice
 
 *  Compute throws exception if second operand not an array
 *  Compute throws exception if second operand does not contain c ol indicator
@@ -263,9 +229,7 @@
 *  Empty matrix returns empty matrix
 *  Compute returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\Concatenate
-    
+## Chippyash\Test\Matrix\Transformation\Concatenate
 
 *  Compute throws exception if second operand is not a matrix
 *  Compute throws exception if matrices have different row count
@@ -274,17 +238,13 @@
 *  Empty matrix returns empty matrix
 *  Compute returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\Diagonal
-    
+## Chippyash\Test\Matrix\Transformation\Diagonal
 
 *  Compute throws exception matrix not complete
 *  Empty matrix returns empty matrix
 *  Compute returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\MFunction
-    
+## Chippyash\Test\Matrix\Transformation\MFunction
 
 *  Compute throws exception if first operand is incomplete matrix
 *  Empty matrix returns empty matrix
@@ -292,9 +252,7 @@
 *  Second parameter to compute must be callable
 *  Compute returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\Reflect
-    
+## Chippyash\Test\Matrix\Transformation\Reflect
 
 *  You must specify a reflection plane
 *  Transform throws exception if first operand is incomplete matrix
@@ -306,9 +264,7 @@
 *  Can reflect through origin
 *  Can reflect y equal x plane
 
-## 
-      Chippyash\Test\Matrix\Transformation\Rotate
-    
+## Chippyash\Test\Matrix\Transformation\Rotate
 
 *  Transform throws exception if first operand is incomplete matrix
 *  Transform throws exception for unrecognized rotation type
@@ -322,9 +278,7 @@
 *  Rotate col matrix will rotate
 *  Combined rotations compute correctly
 
-## 
-      Chippyash\Test\Matrix\Transformation\Rowreduce
-    
+## Chippyash\Test\Matrix\Transformation\Rowreduce
 
 *  Transform throws exception if second operand not an array
 *  Transform throws exception if second operand does not contain row indicator
@@ -337,9 +291,7 @@
 *  Empty matrix returns empty matrix
 *  Transform returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\Rowslice
-    
+## Chippyash\Test\Matrix\Transformation\Rowslice
 
 *  Compute throws exception if second operand not an array
 *  Compute throws exception if second operand does not contain row indicator
@@ -352,9 +304,7 @@
 *  Empty matrix returns empty matrix
 *  Compute returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\Stack
-    
+## Chippyash\Test\Matrix\Transformation\Stack
 
 *  Compute throws exception if second operand is not a matrix
 *  Compute throws exception if matrices have different col count
@@ -363,9 +313,7 @@
 *  Empty matrix returns empty matrix
 *  Compute returns correct result
 
-## 
-      Chippyash\Test\Matrix\Transformation\Transpose
-    
+## Chippyash\Test\Matrix\Transformation\Transpose
 
 *  Second operand ignored
 *  Empty matrix returns empty matrix
@@ -373,9 +321,7 @@
 *  Compute returns correct result
 *  Compute a ttothe t returns correct result
 
-## 
-      Chippyash\Test\Matrix\Vector\Vector
-    
+## Chippyash\Test\Matrix\Vector\Vector
 
 *  Construct with no parameters gives zero vector
 *  Construct with non numeric x throws exception
@@ -385,9 +331,7 @@
 *  Magic to string returns correctly formatted string
 *  To y x string returns correctly formatted string
 
-## 
-      Chippyash\Test\Matrix\Vector\VectorSet
-    
+## Chippyash\Test\Matrix\Vector\VectorSet
 
 *  From matrix with non matrix will throw exception
 *  From matrix with non matrix will return vector 2d

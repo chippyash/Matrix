@@ -56,7 +56,7 @@ class Reflect extends AbstractTransformation
      * Reflect the matrix on a plane
      *
      * @param Matrix $mA First matrix operand - required
-     * @param int $extra Rotation degrees - required
+     * @param int $extra Reflection plane - required
      *
      * @return Matrix
      *

@@ -153,6 +153,7 @@ Attributes supported:
 
 Transformations supported:
 
+*  Circshift - shift columns in matrix left or right (default) around the Y axis
 *  Cofactor - return the cofactor matrix of a vertice
 *  Colreduce - return matrix reduced by 1+ columns
 *  Colslice - return a slice (1+) of the matrix columns
@@ -316,3 +317,5 @@ V2.0.1 remove duplicated tests
 V2.0.2 Add link to packages
 
 V2.0.3 code cleanup
+
+V2.1.0 Add Circshift transformation
