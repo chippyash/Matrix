@@ -304,6 +304,19 @@
 *  Empty matrix returns empty matrix
 *  Compute returns correct result
 
+## Chippyash\Test\Matrix\Transformation\Shift
+
+*  You can shift a single column to the right
+*  You can shift a multiple columns to the right
+*  You can shift a single column to the left
+*  You can shift a multiple columns to the left
+*  A null shift parameter will default to single right shift
+*  Shifting an empty matrix will return an empty matrix
+*  Shifting an single item matrix will return an empty matrix
+*  A zero shift parameter will return a clone of the shifted matrix
+*  Shifting a column vector will return a replaced vector
+*  You can supply a replacement value
+
 ## Chippyash\Test\Matrix\Transformation\Stack
 
 *  Compute throws exception if second operand is not a matrix
