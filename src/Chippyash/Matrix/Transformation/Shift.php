@@ -76,7 +76,7 @@ class Shift extends AbstractTransformation
 
     /**
      * @param Matrix $mA Original Matrix
-     * @param $newValue new value to be used in replacement
+     * @param mixed $newValue new value to be used in replacement
      * @return Matrix Column Vector
      */
     protected function createCVector(Matrix $mA, $newValue)
