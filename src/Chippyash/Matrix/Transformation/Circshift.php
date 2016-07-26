@@ -14,10 +14,9 @@ use Chippyash\Matrix\Matrix;
 use Chippyash\Matrix\Traits\AssertMatrixIsComplete;
 
 /**
- * Shift matrix rows and/or columns left or right circularly around the matrix
+ * Shift matrix columns left or right circularly around the matrix
  * NB - This does not lose data in the matrix
  *
- * @link http://en.wikipedia.org/wiki/Rotation_matrix
  */
 class Circshift extends AbstractTransformation
 {

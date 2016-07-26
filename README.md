@@ -164,6 +164,7 @@ Transformations supported:
 *  Rotate - rotate matrix through 90, 180 or 270 degrees
 *  Rowreduce - return matrix reduced by 1+ rows
 *  Rowslice - return a slice (1+) of matrix rows
+*  Shift - shift matrix rows columns left or right across the matrix replacing new columns with a value
 *  Stack - return matrix stacked on top of extra matrix
 *  Transpose - return matrix with rows and columns swapped around the diagonal
 
@@ -319,3 +320,5 @@ V2.0.2 Add link to packages
 V2.0.3 code cleanup
 
 V2.1.0 Add Circshift transformation
+
+V2.2.0 Add Shift transformation
