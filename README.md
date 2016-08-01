@@ -133,6 +133,7 @@ Attributes supported:
 *  IsRectangle() - Is matrix non-empty and non-square?
 *  IsRowVector() - Is the matrix a row vector?
 *  IsSquare() - Is the matrix square? i.e. n == m & n >= 0
+*  IsVector() - Is the matrix a row vector or a column vector?
 
 
 #### Matrices can be transformed
@@ -322,3 +323,5 @@ V2.0.3 code cleanup
 V2.1.0 Add Circshift transformation
 
 V2.2.0 Add Shift transformation
+
+V2.3.0 Add IsVector attribute
