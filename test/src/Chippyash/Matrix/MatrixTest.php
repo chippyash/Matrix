@@ -208,22 +208,22 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException Chippyash\Matrix\Exceptions\VerticeOutOfBoundsException
-     * @expectedExceptionMessage Vertice 'row' is out of bounds with value: 0
+     * @expectedExceptionMessage Vertice 'row' is out of bounds with value: -1
      */
     public function testMatrixGetVerifiesOneBasedMatrixForRow()
     {
         $this->object = new Matrix(array(array(1, 2, 3), array(3, 2, 1), array(2, 1, 3)));
-        $this->object->get(0, 1);
+        $this->object->get(-1, 1);
     }
 
     /**
      * @expectedException Chippyash\Matrix\Exceptions\VerticeOutOfBoundsException
-     * @expectedExceptionMessage Vertice 'col' is out of bounds with value: 0
+     * @expectedExceptionMessage Vertice 'col' is out of bounds with value: -1
      */
     public function testMatrixGetVerifiesOneBasedMatrixForColumn()
     {
         $this->object = new Matrix(array(array(1, 2, 3), array(3, 2, 1), array(2, 1, 3)));
-        $this->object->get(1, 0);
+        $this->object->get(1, -1);
     }
 
     /**
@@ -246,6 +246,16 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         $this->object->get(1, 4);
     }
 
+    /**
+     * @expectedException Chippyash\Matrix\Exceptions\VerticeOutOfBoundsException
+     * @expectedExceptionMessage Vertice 'row & col' is out of bounds with value: 0
+     */
+    public function testMatrixGetErrorsIfBothParametersAreZero()
+    {
+        $this->object = new Matrix(array(array(1, 2, 3), array(3, 2, 1), array(2, 1, 3)));
+        $this->object->get(0, 0);
+    }
+
     public function testMatrixGetErrorsIfVerticeNotFound()
     {
         $this->object = new Matrix(array(array(1, 2, 3), array(), array()));
@@ -258,7 +268,21 @@ class MatrixTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    public function testMatrixGetReturnsCorrectValue()
+    public function testMatrixGetReturnsColumnMatrixIfRowParameterIsZero()
+    {
+        $this->object = new Matrix(array(array(1, 2, 3), array(3, 2, 1), array(2, 1, 3)));
+        $vector = $this->object->get(0, 1);
+        $this->assertTrue($vector->is('columnvector'));
+    }
+
+    public function testMatrixGetReturnsRowMatrixIfColumnParameterIsZero()
+    {
+        $this->object = new Matrix(array(array(1, 2, 3), array(3, 2, 1), array(2, 1, 3)));
+        $vector = $this->object->get(1, 0);
+        $this->assertTrue($vector->is('rowvector'));
+    }
+
+    public function testMatrixGetWithTwoPositiveParametersReturnsVertice()
     {
         $testArray = array(array(1, 2, 3), array(0, 2, 1), array(2.5, 1, 3));
         $this->object = new Matrix($testArray);

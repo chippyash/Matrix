@@ -93,7 +93,9 @@ The following methods on a matrix are supported:
 *  rows(): int - number of rows (n) in the matrix
 *  columns(): int - number of columns (m) in the matrix
 *  vertices(): int - number of entries in matrix (== n * m)
-*  get(int $row > 0, int $col > 0): mixed - return single entry from matrix.
+*  get(int $row >= 0, int $col >= 0): mixed - if **either row or col** are zero, then return
+a row vector if col == 0, column vector if row == 0, else return single vertex from matrix
+indictated by row, col. 
 *  is(string $attribute): boolean - see attributes below
 *  test(string $attribute): boolean - Raw form of is() method. You can use this to test for attributes
    not supplied with the library by passing in $attribute conforming to AttributeInterface
@@ -325,3 +327,5 @@ V2.1.0 Add Circshift transformation
 V2.2.0 Add Shift transformation
 
 V2.3.0 Add IsVector attribute
+
+V2.3.1 Add ability to get() method to return vectors

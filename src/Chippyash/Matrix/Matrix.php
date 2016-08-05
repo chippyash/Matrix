@@ -18,6 +18,8 @@ use Chippyash\Matrix\Interfaces\TransformationInterface;
 use Chippyash\Matrix\Interfaces\FormatterInterface;
 use Chippyash\Matrix\Interfaces\AttributeInterface;
 use Chippyash\Matrix\Interfaces\InvokableInterface;
+use Chippyash\Matrix\Transformation\Colslice;
+use Chippyash\Matrix\Transformation\Rowslice;
 
 /**
  * Matrices are specialised arrays (in PHP terms)
@@ -169,8 +171,11 @@ class Matrix implements InvokableInterface
 
     /**
      * Get a matrix vertice (entry) value
+     * If row == 0, then return the column vector indicated by col
+     * If col == 0, then return the row vector indicated by row
+     * row == col == 0 is an error
      *
-     * @param int $row >= 1
+     * @param int $row >= 0
      * @param int $col >= 1
      *
      * @return mixed
@@ -180,12 +185,24 @@ class Matrix implements InvokableInterface
      */
     public function get($row, $col)
     {
-        if ($row < 1 || $row > $this->rows()) {
+        if ($row < 0 || $row > $this->rows()) {
             throw new VerticeOutOfBoundsException('row', $row);
         }
-        if ($col < 1 || $col > $this->columns()) {
+        if ($col < 0 || $col > $this->columns()) {
             throw new VerticeOutOfBoundsException('col', $col);
         }
+        if ($row == 0 && $col == 0) {
+            throw new VerticeOutOfBoundsException('row & col', 0);
+        }
+
+        if ($row == 0 && $col > 0) {
+            return $this->transform(new Colslice(), [$col]);
+        }
+
+        if ($col == 0 && $row > 0) {
+            return $this->transform(new Rowslice(), [$row]);
+        }
+
         if (!isset($this->data[$row-1][$col-1])) {
             throw new VerticeNotFoundException($row, $col);
         }

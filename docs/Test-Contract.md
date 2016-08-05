@@ -67,6 +67,11 @@
 *  Incomplete matrix returns false
 *  Square matrix returns true
 
+## Chippyash\Test\Matrix\Attribute\IsVector
+
+*  Is vector is a row vector or a column vector
+*  Is vector is false if parameter is not a vector
+
 ## Chippyash\Test\Matrix\Exceptions\Exceptions
 
 *  Exceptions derived from matrix exception
@@ -100,8 +105,11 @@
 *  Matrix get verifies one based matrix for column
 *  Matrix get verifies upper boundary of matrix for row
 *  Matrix get verifies upper boundary of matrix for column
+*  Matrix get errors if both parameters are zero
 *  Matrix get errors if vertice not found
-*  Matrix get returns correct value
+*  Matrix get returns column matrix if row parameter is zero
+*  Matrix get returns row matrix if column parameter is zero
+*  Matrix get with two positive parameters returns vertice
 *  Display throws exception if no formatter set
 *  Display returns output if formatter set
 *  Display accepts options array
