@@ -49,6 +49,7 @@ use Chippyash\Matrix\Transformation\Rowslice;
  * - the entry at the intersection of last row and last column is MR,C
  *
  * Matrices are immutable, they cannot be changed internally.  Hence no set() method.
+ * See Mutability trait if you really want a mutable matrix
  *
  */
 class Matrix implements InvokableInterface

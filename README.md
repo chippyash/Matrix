@@ -114,6 +114,39 @@ No operation on a matrix will change the internal structure of the matrix.  Any
 transformation or similar will return another matrix, leaving the original alone.
 This allows for arithmetic stability.
 
+However, a Mutability trait is provided for you to create a mutable matrix for special
+purposes.
+
+<pre>
+use Chippyash\Matrix\Traits\Mutability;
+
+class MutableMatrix extends Matrix
+{
+    use Mutability;
+}
+</pre>
+
+This provides a set() method:
+<pre>
+    /**
+     * Set a matrix vertex, row or column vector
+     * If row == 0 && col > 0, then set the column vector indicated by col
+     * If col == 0 && row > 0, then set the row vector indicated by row
+     * if row > 0 && col > 0, set the vertex
+     * row == col == 0 is an error
+     *
+     * @param int $row
+     * @param int $col
+     * @param mixed|Matrix $data If setting a vector, supply the correct vector matrix
+     *
+     * @return Matrix
+     
+     * @throws VerticeOutOfBoundsException
+     * @throws MatrixException
+     */
+    public function set($row, $col, $data);
+</pre>
+
 #### Matrices have attributes
 
 *  Attributes always return a boolean.
@@ -329,3 +362,5 @@ V2.2.0 Add Shift transformation
 V2.3.0 Add IsVector attribute
 
 V2.3.1 Add ability to get() method to return vectors
+
+V2.4.0 Add Mutable Set Trait
