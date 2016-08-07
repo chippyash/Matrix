@@ -55,7 +55,8 @@ trait Mutability
             }
             $dArr = $data->toArray();
             $col --;
-            for ($n = 0; $n < $this->rows(); $n ++) {
+            $nRows = $this->rows();
+            for ($n = 0; $n < $nRows; $n ++) {
                 $this->data[$n][$col] = $dArr[$n][0];
             }
             return $this;
@@ -67,7 +68,8 @@ trait Mutability
             }
             $dArr = $data->toArray();
             $row --;
-            for ($m = 0; $m < $this->columns(); $m ++) {
+            $nCols = $this->columns();
+            for ($m = 0; $m < $nCols; $m ++) {
                 $this->data[$row][$m] = $dArr[0][$m];
             }
             return $this;
