@@ -366,3 +366,5 @@ V2.3.1 Add ability to get() method to return vectors
 V2.4.0 Add Mutable Set Trait
 
 V2.4.1 code cleanup
+
+V2.4.2 remove user config files
