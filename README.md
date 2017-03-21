@@ -197,6 +197,7 @@ Transformations supported:
 *  Diagonal - reduce a matrix to its diagonal elements substituting non diagonal entries with zero
 *  MFunction - apply a function to every entry in the matrix
 *  Reflect - reflect matrix on X plane, Y plane, y=x plane and through origin
+*  Resize - resize a matrix by adding or subtracting rows and columns from bottom and right side respectively
 *  Rotate - rotate matrix through 90, 180 or 270 degrees
 *  Rowreduce - return matrix reduced by 1+ rows
 *  Rowslice - return a slice (1+) of matrix rows
@@ -368,3 +369,5 @@ V2.4.0 Add Mutable Set Trait
 V2.4.1 code cleanup
 
 V2.4.2 remove user config files
+
+V2.5.0 add Resize transformation
