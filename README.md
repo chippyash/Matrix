@@ -378,3 +378,5 @@ V2.4.1 code cleanup
 V2.4.2 remove user config files
 
 V2.5.0 add Resize transformation
+
+V2.5.1 update build script
