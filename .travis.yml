@@ -12,17 +12,18 @@ php:
   # aliased to a recent 7.x version
   - 7
 
-# omitting "script:" will default to phpunit
-# use the $DB env variable to determine the phpunit.xml to use
 before_script:
-  - composer install --dev --no-interaction
+  - composer install --no-interaction
   - mkdir -p build/logs
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
-  - vendor/bin/phpunit --configuration phpunit.travis.xml --coverage-clover build/logs/clover.xml
+  - vendor/phpunit/phpunit/phpunit --configuration ./phpunit.travis.xml test
 
 after_success:
-  - ./vendor/bin/test-reporter
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
