@@ -2,8 +2,6 @@
 
 ## Quality Assurance
 
-![PHP 5.4](https://img.shields.io/badge/PHP-5.4-blue.svg)
-![PHP 5.5](https://img.shields.io/badge/PHP-5.5-blue.svg)
 ![PHP 5.6](https://img.shields.io/badge/PHP-5.6-blue.svg)
 ![PHP 7](https://img.shields.io/badge/PHP-7-blue.svg)
 [![Build Status](https://travis-ci.org/chippyash/Matrix.svg?branch=master)](https://travis-ci.org/chippyash/Matrix)
@@ -18,12 +16,8 @@ The above badges represent the current development branch.  As a rule, I don't p
  
 [Test Contract](https://github.com/chippyash/matrix/blob/master/docs/Test-Contract.md) in the docs directory.
 
-### End of life notice
-
-In March 2018, developer support will be withdrawn from this library for PHP <5.6. Older
-versions of PHP are now in such little use that the added effort of maintaining 
-compatibility is not effort effective.  See [PHP Version Stats](https://seld.be/notes/php-versions-stats-2017-1-edition)
- for the numbers.
+Please note that developer support for PHP5.4 & 5.5 was withdrawn at version 3.0.0 of this library.
+If you need support for PHP 5.4 or 5.5, please use a version `>=2,<3`
  
 ## What?
 
@@ -285,7 +279,7 @@ Install [Composer](https://getcomposer.org/)
 add
 
 <pre>
-    "chippyash/matrix": "~2"
+    "chippyash/matrix": ">=3,<4"
 </pre>
 
 to your composer.json "requires" section
@@ -380,3 +374,5 @@ V2.4.2 remove user config files
 V2.5.0 add Resize transformation
 
 V2.5.1 update build script
+
+V3.0.0 BC Break. Withdraw support for old PHP versions
