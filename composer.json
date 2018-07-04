@@ -1,7 +1,7 @@
 {
     "name": "chippyash/matrix",
     "description": "PHP Matrix data structure support package",
-    "license": "GPL-3.0+",
+    "license": "BSD-3-Clause",
     "homepage" : "http://zf4.biz/packages?utm_source=packagist&utm_medium=web&utm_campaign=blinks&utm_content=matrix",
     "keywords": ["math", "matrix"],
     "authors": [
